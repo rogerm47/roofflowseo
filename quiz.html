@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed-to-Lead Quiz | RoofFlow AI</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: white; }
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* Logo Optimization */
+        .logo-img { height: 48px; width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Simple Nav -->
+    <nav class="p-6 flex justify-between items-center">
+        <a href="index.html" class="block"><img src="logo.jpeg" alt="RoofFlow AI" class="logo-img grayscale brightness-200"></a>
+        <a href="index.html" class="text-sm font-bold text-gray-400 hover:text-white transition">Exit Quiz <i class="fa-solid fa-xmark ml-1"></i></a>
+    </nav>
+
+    <!-- Quiz Container -->
+    <main class="flex-grow flex items-center justify-center p-4">
+        <div class="max-w-2xl w-full bg-slate-800 p-8 md:p-12 rounded-[2rem] shadow-2xl border border-slate-700 relative overflow-hidden">
+            
+            <!-- Progress Bar -->
+            <div class="absolute top-0 left-0 w-full h-2 bg-slate-700">
+                <div id="progress-bar" class="h-full bg-blue-500 transition-all duration-500" style="width: 25%;"></div>
+            </div>
+
+            <!-- Question 1 -->
+            <div id="q1" class="question-step fade-in">
+                <h2 class="text-3xl font-black mb-8 leading-tight">When a new lead comes in, how quickly do you usually reply?</h2>
+                <div class="grid gap-4">
+                    <button onclick="nextStep(2)" class="p-5 bg-slate-700 hover:bg-blue-600 rounded-xl text-left font-bold transition flex justify-between group">
+                        Within 5 minutes <span class="hidden group-hover:block"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                    <button onclick="nextStep(2)" class="p-5 bg-slate-700 hover:bg-blue-600 rounded-xl text-left font-bold transition flex justify-between group">
+                        Within 1 hour <span class="hidden group-hover:block"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                    <button onclick="nextStep(2)" class="p-5 bg-slate-700 hover:bg-blue-600 rounded-xl text-left font-bold transition flex justify-between group">
+                        Same day <span class="hidden group-hover:block"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                    <button onclick="nextStep(2)" class="p-5 bg-slate-700 hover:bg-blue-600 rounded-xl text-left font-bold transition flex justify-between group">
+                        Next day or later <span class="hidden group-hover:block"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 2 -->
+            <div id="q2" class="question-step hidden fade-in">
+                <h2 class="text-3xl font-black mb-8 leading-tight">Do you currently have an automated system to handle weekend or evening enquiries?</h2>
+                <div class="grid gap-4">
+                    <button onclick="nextStep(3)" class="p-5 bg-slate-700 hover:bg-blue-600 rounded-xl text-left font-bold transition flex justify-between group">
+                        Yes, I use a CRM/Bot <span class="hidden group-hover:block"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                    <button onclick="nextStep(3)" class="p-5 bg-slate-700 hover:bg-blue-600 rounded-xl text-left font-bold transition flex justify-between group">
+                        No, I do it manually <span class="hidden group-hover:block"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                    <button onclick="nextStep(3)" class="p-5 bg-slate-700 hover:bg-blue-600 rounded-xl text-left font-bold transition flex justify-between group">
+                        No, I wait until Monday <span class="hidden group-hover:block"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 3 -->
+            <div id="q3" class="question-step hidden fade-in">
+                <h2 class="text-3xl font-black mb-8 leading-tight">How many potential jobs do you think you miss because you're busy on a roof?</h2>
+                <div class="grid gap-4">
+                    <button onclick="showResult()" class="p-5 bg-slate-700 hover:bg-blue-600 rounded-xl text-left font-bold transition flex justify-between group">
+                        None / Very few <span class="hidden group-hover:block"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                    <button onclick="showResult()" class="p-5 bg-slate-700 hover:bg-blue-600 rounded-xl text-left font-bold transition flex justify-between group">
+                        Maybe 1-2 a month <span class="hidden group-hover:block"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                    <button onclick="showResult()" class="p-5 bg-slate-700 hover:bg-blue-600 rounded-xl text-left font-bold transition flex justify-between group">
+                        Too many to count <span class="hidden group-hover:block"><i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading Screen -->
+            <div id="loading" class="hidden text-center py-10 fade-in">
+                <i class="fa-solid fa-circle-notch fa-spin text-5xl text-blue-500 mb-6"></i>
+                <h3 class="text-2xl font-bold">Analyzing your process...</h3>
+                <p class="text-gray-400 mt-2">Checking industry benchmarks for Manchester...</p>
+            </div>
+
+            <!-- Final Result (Funnel) -->
+            <div id="result" class="hidden text-center fade-in">
+                <div class="inline-block bg-green-500/20 text-green-400 px-4 py-1 rounded-full font-bold uppercase text-xs tracking-widest mb-6">
+                    <i class="fa-solid fa-check-circle mr-2"></i> Qualification Complete
+                </div>
+                <h2 class="text-3xl md:text-4xl font-black mb-6">You Are Losing Revenue.</h2>
+                <p class="text-lg text-gray-300 mb-8 leading-relaxed">
+                    Based on your answers, your manual follow-up process is causing "Speed-to-Lead" leakage. You are a perfect candidate for our AI Automation Pilot.
+                </p>
+                
+                <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 mb-8 text-left">
+                    <h4 class="font-bold text-white mb-4 border-b border-slate-700 pb-2">Your Recommended Plan:</h4>
+                    <ul class="space-y-3 text-sm text-gray-300">
+                        <li class="flex items-start"><i class="fa-solid fa-bolt text-yellow-400 mt-1 mr-3"></i> Install "Instant Reply" AI (stops leakage)</li>
+                        <li class="flex items-start"><i class="fa-solid fa-robot text-blue-400 mt-1 mr-3"></i> Automate weekend lead capture</li>
+                        <li class="flex items-start"><i class="fa-solid fa-calendar-check text-green-400 mt-1 mr-3"></i> Sync booking directly to your calendar</li>
+                    </ul>
+                </div>
+
+                <!-- Final CTA Form -->
+                <form id="quizForm" class="space-y-4">
+                    <input type="text" id="name" required placeholder="Enter your Name" class="w-full p-4 rounded-xl bg-slate-700 border border-slate-600 focus:border-blue-500 outline-none text-white">
+                    <input type="email" id="email" required placeholder="Enter your Email" class="w-full p-4 rounded-xl bg-slate-700 border border-slate-600 focus:border-blue-500 outline-none text-white">
+                    <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-5 rounded-xl shadow-lg transition transform hover:scale-[1.02] text-xl">
+                        Get My Custom Roadmap <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="p-6 text-center text-xs text-gray-500">
+        &copy; 2026 RoofFlow AI LTD.
+    </footer>
+
+    <script>
+        function nextStep(step) {
+            // Hide all questions
+            document.querySelectorAll('.question-step').forEach(el => el.classList.add('hidden'));
+            
+            // Update progress
+            const progress = step * 25;
+            document.getElementById('progress-bar').style.width = progress + '%';
+
+            // Show next question
+            document.getElementById('q' + step).classList.remove('hidden');
+        }
+
+        function showResult() {
+            document.querySelectorAll('.question-step').forEach(el => el.classList.add('hidden'));
+            document.getElementById('progress-bar').style.width = '100%';
+            
+            // Show loading
+            const loader = document.getElementById('loading');
+            loader.classList.remove('hidden');
+
+            // Simulate calculation delay
+            setTimeout(() => {
+                loader.classList.add('hidden');
+                document.getElementById('result').classList.remove('hidden');
+            }, 2000);
+        }
+
+        // Handle Form Submit
+        const form = document.getElementById('quizForm');
+        const btn = document.getElementById('submitBtn');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            btn.disabled = true;
+            btn.innerText = "Processing...";
+
+            const payload = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                source: "Quiz Funnel"
+            };
+
+            fetch('https://primary-production-58a3.app/webhook/8c1172f6-7bb0-4a5d-91e9-2bae3dd8f02f', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(() => {
+                alert("Success! We'll send your roadmap shortly.");
+                window.location.href = 'index.html'; // Redirect back to home
+            }).catch(() => {
+                alert("Error. Please try again.");
+                btn.disabled = false;
+                btn.innerText = "Get My Custom Roadmap";
+            });
+        });
+    </script>
+</body>
+</html>

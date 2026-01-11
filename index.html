@@ -44,19 +44,19 @@
             background-size: cover;
             background-position: center;
         }
-        /* Deep Blue Gradient */
-        .gradient-text { background: linear-gradient(90deg, #1d4ed8, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        /* Dark Navy Gradient */
+        .gradient-text { background: linear-gradient(90deg, #1e3a8a, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
         
-        /* Logo Optimization */
+        /* Logo Optimization - Larger and clearer */
         .logo-container {
             display: flex;
             align-items: center;
             height: 100%;
         }
         .logo-img {
-            /* Ideal height for modern navbars is between 40px and 50px */
-            height: 48px; 
+            /* Increased height to 64px for better visibility */
+            height: 64px; 
             width: auto;
             object-fit: contain;
             /* Ensure crisp rendering */
@@ -68,24 +68,23 @@
 
     <!-- Navigation -->
     <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-20">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-24"> <!-- Increased nav height slightly to h-24 to accommodate larger logo -->
             <a href="#" class="logo-container">
-                <!-- Ensure "Roofflowai logo.png" has minimal transparent margins for best fit -->
                 <img src="logo.jpeg" alt="RoofFlow AI Logo" class="logo-img">
             </a>
             <div class="hidden md:flex space-x-8 font-semibold text-gray-600">
-                <a href="#how-it-works" class="hover:text-blue-700 transition">How it Works</a>
-                <a href="#calculator" class="hover:text-blue-700 transition">ROI Calculator</a>
-                <a href="#insights" class="hover:text-blue-700 transition">Insights</a>
-                <a href="https://cal.com/roger-malek/15min" target="_blank" class="bg-blue-700 text-white px-5 py-2 rounded-lg hover:bg-blue-800 transition shadow-md">Book Free Audit</a>
+                <a href="#how-it-works" class="hover:text-blue-900 transition">How it Works</a>
+                <a href="#calculator" class="hover:text-blue-900 transition">ROI Calculator</a>
+                <a href="#insights" class="hover:text-blue-900 transition">Insights</a>
+                <a href="https://cal.com/roger-malek/15min" target="_blank" class="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition shadow-md">Book Free Audit</a>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-20 relative overflow-hidden">
+    <header class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-24 relative overflow-hidden">
         <div class="max-w-5xl mx-auto text-white relative z-10">
-            <span class="bg-blue-700/20 text-blue-400 border border-blue-700/50 px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-6 inline-block">
+            <span class="bg-blue-900/40 text-blue-200 border border-blue-500/30 px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-6 inline-block">
                 Trusted by UK Roofing Companies
             </span>
             <h1 class="text-5xl md:text-7xl font-black mb-6 leading-[1.1]">
@@ -95,7 +94,7 @@
                 Our AI system responds to your roofing enquiries in <span class="text-white font-semibold">60 seconds</span> while you are on the roof. Stop quoting at 9 PM and start winning jobs at 9 AM.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="#lead-form" class="w-full md:w-auto bg-blue-700 hover:bg-blue-800 text-white font-black text-xl py-5 px-12 rounded-xl shadow-2xl transition transform hover:scale-105 active:scale-95">
+                <a href="#lead-form" class="w-full md:w-auto bg-blue-900 hover:bg-blue-800 text-white font-black text-xl py-5 px-12 rounded-xl shadow-2xl transition transform hover:scale-105 active:scale-95 border border-blue-800">
                     Start Free 14-Day Trial
                 </a>
                 <a href="#calculator" class="w-full md:w-auto bg-white/10 hover:bg-white/20 text-white font-bold text-xl py-5 px-12 rounded-xl backdrop-blur-md border border-white/30 transition">
@@ -110,7 +109,7 @@
     <div class="bg-white py-12 border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <p class="text-gray-400 font-bold text-xs uppercase tracking-widest mb-8">Winning more jobs for roofers in</p>
-            <div class="flex flex-wrap justify-center gap-12 text-2xl font-black text-slate-200 uppercase italic">
+            <div class="flex flex-wrap justify-center gap-12 text-2xl font-black text-slate-300 uppercase italic">
                 <span>Manchester</span>
                 <span>London</span>
                 <span>Leeds</span>
@@ -125,8 +124,8 @@
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-20 items-center">
             <div class="order-2 md:order-1">
                 <div class="bg-slate-900 rounded-[2.5rem] p-10 text-white shadow-2xl relative">
-                    <div class="absolute -top-6 -right-6 bg-blue-700 p-6 rounded-2xl shadow-xl transform rotate-12 hidden md:block">
-                        <i class="fa-solid fa-bolt-lightning text-3xl"></i>
+                    <div class="absolute -top-6 -right-6 bg-blue-900 p-6 rounded-2xl shadow-xl transform rotate-12 hidden md:block">
+                        <i class="fa-solid fa-bolt-lightning text-3xl text-white"></i>
                     </div>
                     <h3 class="text-3xl font-bold mb-8 flex items-center">
                         <i class="fa-solid fa-robot text-blue-500 mr-4"></i> The AI Difference
@@ -158,20 +157,20 @@
             </div>
             <div class="order-1 md:order-2">
                 <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">
-                    In the Roofing Business, <br><span class="text-blue-700 italic">Speed is Profit.</span>
+                    In the Roofing Business, <br><span class="text-blue-900 italic">Speed is Profit.</span>
                 </h2>
                 <p class="text-xl text-gray-600 mb-8 leading-relaxed">
                     UK homeowners enquire with 3-5 companies at once. If you're on a roof and don't reply within 5 minutes, <span class="font-bold text-slate-900">you've already lost the job.</span>
                 </p>
                 <ul class="space-y-4">
                     <li class="flex items-center text-lg font-semibold text-slate-700">
-                        <i class="fa-solid fa-circle-check text-green-500 mr-3"></i> AI qualifies the lead (Postcode, Job Type)
+                        <i class="fa-solid fa-circle-check text-green-600 mr-3"></i> AI qualifies the lead (Postcode, Job Type)
                     </li>
                     <li class="flex items-center text-lg font-semibold text-slate-700">
-                        <i class="fa-solid fa-circle-check text-green-500 mr-3"></i> Automatically books site visits in your calendar
+                        <i class="fa-solid fa-circle-check text-green-600 mr-3"></i> Automatically books site visits in your calendar
                     </li>
                     <li class="flex items-center text-lg font-semibold text-slate-700">
-                        <i class="fa-solid fa-circle-check text-green-500 mr-3"></i> You wake up to a booked-out week
+                        <i class="fa-solid fa-circle-check text-green-600 mr-3"></i> You wake up to a booked-out week
                     </li>
                 </ul>
             </div>
@@ -190,16 +189,16 @@
                 <div class="space-y-10">
                     <div>
                         <label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">Monthly Enquiries</label>
-                        <input type="range" id="calc-leads" min="5" max="100" value="20" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-700">
-                        <div class="flex justify-between mt-3 font-bold text-2xl text-blue-800"><span id="leads-val">20</span> <span class="text-sm uppercase text-gray-400 pt-2">Leads</span></div>
+                        <input type="range" id="calc-leads" min="5" max="100" value="20" class="w-full h-3 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-900">
+                        <div class="flex justify-between mt-3 font-bold text-2xl text-blue-900"><span id="leads-val">20</span> <span class="text-sm uppercase text-gray-400 pt-2">Leads</span></div>
                     </div>
                     <div>
                         <label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">Avg. Job Value (£)</label>
-                        <input type="number" id="calc-value" value="5000" class="w-full p-5 bg-slate-50 rounded-2xl border-2 border-slate-100 focus:border-blue-700 outline-none text-3xl font-black transition">
+                        <input type="number" id="calc-value" value="5000" class="w-full p-5 bg-slate-50 rounded-2xl border-2 border-slate-100 focus:border-blue-900 outline-none text-3xl font-black transition">
                     </div>
                     <div>
                         <label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">Your Response Speed</label>
-                        <select id="calc-time" class="w-full p-5 bg-slate-50 rounded-2xl border-2 border-slate-100 focus:border-blue-700 outline-none text-xl font-bold transition">
+                        <select id="calc-time" class="w-full p-5 bg-slate-50 rounded-2xl border-2 border-slate-100 focus:border-blue-900 outline-none text-xl font-bold transition">
                             <option value="0.05">Fast (Under 5 mins)</option>
                             <option value="0.25">Average (1-2 Hours)</option>
                             <option value="0.50" selected>Slow (Next Day/Evening)</option>
@@ -207,7 +206,7 @@
                     </div>
                 </div>
 
-                <div class="bg-gradient-to-br from-blue-700 to-blue-900 p-12 rounded-[2.5rem] text-center text-white shadow-xl relative">
+                <div class="bg-gradient-to-br from-blue-900 to-slate-900 p-12 rounded-[2.5rem] text-center text-white shadow-xl relative">
                     <p class="text-blue-100 font-bold uppercase tracking-widest text-sm mb-4">Annual Revenue Lost</p>
                     <div class="text-6xl md:text-8xl font-black mb-8 tracking-tighter">
                         £<span id="annual-leak">60,000</span>
@@ -215,7 +214,7 @@
                     <p class="text-blue-100 italic mb-10 leading-relaxed text-lg">
                         "This is money your competitors are taking simply because they answered the phone first."
                     </p>
-                    <a href="#lead-form" class="inline-block bg-white text-blue-800 font-black py-5 px-10 rounded-2xl shadow-lg transition transform hover:scale-105 active:scale-95 text-xl uppercase tracking-tight">
+                    <a href="#lead-form" class="inline-block bg-white text-blue-900 font-black py-5 px-10 rounded-2xl shadow-lg transition transform hover:scale-105 active:scale-95 text-xl uppercase tracking-tight">
                         Stop The Leak Today
                     </a>
                 </div>
@@ -234,7 +233,7 @@
                     <div class="h-64 rounded-3xl overflow-hidden mb-6 bg-slate-100 shadow-md border border-gray-100">
                         <img src="https://images.unsplash.com/photo-1628594716762-59d04f2165b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Roofing site UK" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">
                     </div>
-                    <h3 class="text-2xl font-black mb-3 group-hover:text-blue-700 transition leading-tight">Why Checkatrade Leads are Failing You in 2026</h3>
+                    <h3 class="text-2xl font-black mb-3 group-hover:text-blue-900 transition leading-tight">Why Checkatrade Leads are Failing You in 2026</h3>
                     <p class="text-gray-500 leading-relaxed">The portal model is broken. Learn why paying for shared leads is a race to the bottom on price.</p>
                 </a>
 
@@ -243,18 +242,18 @@
                     <div class="h-64 rounded-3xl overflow-hidden mb-6 bg-slate-100 shadow-md border border-gray-100">
                         <img src="https://images.unsplash.com/photo-1551288049-bbbda5006b98?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Manchester City" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">
                     </div>
-                    <h3 class="text-2xl font-black mb-3 group-hover:text-blue-700 transition leading-tight">The "Speed-to-Lead" Secret for Manchester Firms</h3>
+                    <h3 class="text-2xl font-black mb-3 group-hover:text-blue-900 transition leading-tight">The "Speed-to-Lead" Secret for Manchester Firms</h3>
                     <p class="text-gray-500 leading-relaxed">How the top 1% of roofing businesses use n8n to book quotes while they sleep.</p>
                 </a>
 
                 <!-- Quiz Card -->
-                <div class="bg-blue-700 rounded-[2.5rem] p-10 text-white flex flex-col justify-between text-left shadow-2xl">
+                <div class="bg-blue-900 rounded-[2.5rem] p-10 text-white flex flex-col justify-between text-left shadow-2xl">
                     <div>
                         <i class="fa-solid fa-brain text-5xl mb-8 opacity-40"></i>
                         <h3 class="text-3xl font-black mb-4 leading-tight">Is Your Roofing Business AI-Ready?</h3>
                         <p class="text-blue-100 font-medium mb-8 leading-relaxed">Take our 2-minute "Digital Leak" audit and get a custom roadmap.</p>
                     </div>
-                    <button class="bg-white text-blue-800 font-black py-4 rounded-2xl hover:bg-slate-100 transition shadow-lg text-sm uppercase tracking-wider">Start Free Audit</button>
+                    <button class="bg-white text-blue-900 font-black py-4 rounded-2xl hover:bg-slate-100 transition shadow-lg text-sm uppercase tracking-wider">Start Free Audit</button>
                 </div>
             </div>
         </div>
@@ -267,13 +266,13 @@
                 <div class="relative">
                     <img src="IMG_2053.JPEG" alt="Roger Malek - AI Specialist Manchester" class="rounded-[3rem] shadow-2xl w-full aspect-[4/5] object-cover border-8 border-white">
                     <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl">
-                        <p class="text-blue-700 font-black text-2xl tracking-tighter italic">n8n Expert</p>
+                        <p class="text-blue-900 font-black text-2xl tracking-tighter italic">n8n Expert</p>
                     </div>
                 </div>
             </div>
             <div class="w-full md:w-3/5 text-center md:text-left">
                 <h2 class="text-4xl font-black mb-2 text-slate-900 uppercase">Meet Roger Malek</h2>
-                <p class="text-blue-700 font-black mb-8 tracking-widest text-sm uppercase">AI Specialist | Manchester, UK</p>
+                <p class="text-blue-900 font-black mb-8 tracking-widest text-sm uppercase">AI Specialist | Manchester, UK</p>
                 <div class="text-xl text-gray-600 italic leading-relaxed mb-8 font-light">
                     "I build AI workflows that give UK tradespeople an unfair advantage. I created RoofFlow AI to stop great roofers from losing jobs simply because they were too busy doing the actual work to answer the phone."
                 </div>
@@ -288,20 +287,20 @@
     <!-- Final Setup Form -->
     <section class="py-24 bg-white" id="lead-form">
         <div class="max-w-3xl mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-6xl font-black mb-8 text-slate-900">Get Your <span class="text-blue-700">Free Setup</span></h2>
+            <h2 class="text-4xl md:text-6xl font-black mb-8 text-slate-900">Get Your <span class="text-blue-900">Free Setup</span></h2>
             <p class="text-xl text-gray-500 mb-12">Claim your 14-day free trial. We install it, you win jobs, or you walk away with a free AI roadmap.</p>
             
-            <div class="bg-slate-900 p-8 md:p-12 rounded-[3rem] text-left shadow-2xl border-t-8 border-blue-700">
+            <div class="bg-slate-900 p-8 md:p-12 rounded-[3rem] text-left shadow-2xl border-t-8 border-blue-900">
                 <form id="infoRequestForm" class="space-y-6">
                     <div>
                         <label class="block text-xs font-black text-gray-500 uppercase tracking-widest mb-2">Full Name</label>
-                        <input type="text" id="name" required placeholder="e.g. Gary Smith" class="w-full p-5 rounded-2xl bg-white border-none focus:ring-4 focus:ring-blue-500/20 outline-none font-bold text-lg">
+                        <input type="text" id="name" required placeholder="e.g. Gary Smith" class="w-full p-5 rounded-2xl bg-white border-none focus:ring-4 focus:ring-blue-900/20 outline-none font-bold text-lg">
                     </div>
                     <div>
                         <label class="block text-xs font-black text-gray-500 uppercase tracking-widest mb-2">Work Email</label>
-                        <input type="email" id="email" required placeholder="gary@example.co.uk" class="w-full p-5 rounded-2xl bg-white border-none focus:ring-4 focus:ring-blue-500/20 outline-none font-bold text-lg">
+                        <input type="email" id="email" required placeholder="gary@example.co.uk" class="w-full p-5 rounded-2xl bg-white border-none focus:ring-4 focus:ring-blue-900/20 outline-none font-bold text-lg">
                     </div>
-                    <button type="submit" id="submitButton" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-black py-6 rounded-2xl shadow-xl transition transform hover:scale-[1.02] active:scale-95 text-2xl uppercase tracking-tighter">
+                    <button type="submit" id="submitButton" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-black py-6 rounded-2xl shadow-xl transition transform hover:scale-[1.02] active:scale-95 text-2xl uppercase tracking-tighter">
                         Request Setup <i class="fa-solid fa-arrow-right ml-2"></i>
                     </button>
                 </form>
@@ -318,8 +317,8 @@
     <footer class="bg-slate-950 text-gray-500 py-24">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-16">
             <div class="col-span-2 text-center md:text-left">
-                <div class="h-12 flex items-center justify-center md:justify-start mb-8 grayscale brightness-200 opacity-50">
-                    <img src="Roofflowai logo.png" alt="Logo" class="h-full w-auto object-contain">
+                <div class="h-16 flex items-center justify-center md:justify-start mb-8 grayscale brightness-200 opacity-50"> <!-- Increased container height here too -->
+                    <img src="logo.jpeg" alt="Logo" class="h-full w-auto object-contain">
                 </div>
                 <p class="max-w-sm mb-8 leading-relaxed mx-auto md:mx-0">Manchester's premier AI agency for the roofing industry. We leverage n8n, LLMs, and real-world trade experience to automate your growth.</p>
                 <div class="flex justify-center md:justify-start space-x-6 text-white text-2xl">
@@ -355,8 +354,9 @@
     <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
     <style>
       :root {
-        --n8n-chat-primary-color: #1d4ed8 !important;
-        --n8n-chat-primary-hover-color: #1e40af !important;
+        /* Updated chat color to match dark blue theme */
+        --n8n-chat-primary-color: #1e3a8a !important; 
+        --n8n-chat-primary-hover-color: #172554 !important;
       }
       .n8n-chat-footer-branding { display: none !important; }
     </style>
@@ -368,7 +368,7 @@
         showWelcomeMsg: true,
         welcomeMsg: 'Hi there! 👋 Need to win more roofing jobs without touching your phone? Ask me how.',
         title: 'RoofFlow Assistant',
-        mainColor: '#1d4ed8',
+        mainColor: '#1e3a8a',
       });
     </script>
 
@@ -406,7 +406,7 @@
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
                 potential_leak: displayLeak.innerText,
-                source: 'RoofFlow Homepage - Optimized'
+                source: 'RoofFlow Homepage - Navy Blue Edition'
             };
 
             fetch('https://primary-production-58a3.app/webhook/8c1172f6-7bb0-4a5d-91e9-2bae3dd8f02f', {
@@ -435,4 +435,3 @@
     </script>
 </body>
 </html>
-

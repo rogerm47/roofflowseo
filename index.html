@@ -83,9 +83,16 @@
 
     <!-- Navigation -->
     <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-gray-100">
-        <!-- Zmiana na grid-cols-3, aby wymusić centralne położenie logo -->
-        <div class="max-w-7xl mx-auto px-4 h-24 flex md:grid md:grid-cols-3 items-center justify-between">
+        <!-- Używamy relative dla pozycjonowania mobilnego i grid dla desktopu -->
+        <div class="max-w-7xl mx-auto px-4 h-24 relative flex items-center justify-center md:grid md:grid-cols-3 md:justify-between">
             
+            <!-- Mobile Menu Button (Hamburger) - Absolute Right on Mobile -->
+            <div class="absolute right-4 md:hidden z-20">
+                <button id="mobile-menu-btn" class="text-gray-800 focus:outline-none p-2 hover:text-blue-900 transition">
+                    <i class="fa-solid fa-bars text-3xl"></i>
+                </button>
+            </div>
+
             <!-- Left Side: Links (Hidden on mobile) -->
             <div class="hidden md:flex space-x-8 font-semibold text-gray-600 justify-start">
                 <a href="#how-it-works" class="hover:text-blue-900 transition whitespace-nowrap">How it Works</a>
@@ -105,6 +112,16 @@
                 <a href="https://cal.com/roger-malek/15min" target="_blank" class="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition shadow-md whitespace-nowrap">Book Free Audit</a>
             </div>
             
+        </div>
+
+        <!-- Mobile Menu Dropdown (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-24 shadow-xl z-10">
+            <div class="flex flex-col p-6 space-y-6 text-center">
+                <a href="#how-it-works" class="text-xl font-bold text-gray-700 hover:text-blue-900 py-2 mobile-link">How it Works</a>
+                <a href="#calculator" class="text-xl font-bold text-gray-700 hover:text-blue-900 py-2 mobile-link">ROI Calculator</a>
+                <a href="#insights" class="text-xl font-bold text-gray-700 hover:text-blue-900 py-2 mobile-link">Insights</a>
+                <a href="https://cal.com/roger-malek/15min" target="_blank" class="bg-blue-900 text-white px-6 py-4 rounded-xl hover:bg-blue-800 transition shadow-md font-bold block mx-4">Book Free Audit</a>
+            </div>
         </div>
     </nav>
 
@@ -282,7 +299,7 @@
                 <!-- Article 1 -->
                 <a href="articles/checkatrade-failing.html" class="group text-left card-hover">
                     <div class="h-64 rounded-3xl overflow-hidden mb-6 bg-slate-100 shadow-md border border-gray-100">
-                        <img src="roofing-site-uk.png" alt="A professional roofer in a clean high-visibility vest inspecting a slate roof on a classic red-brick Victorian terraced house in the UK. Wet slate texture, overcast British sky, scaffolding poles visible in the blurred background. Realistic, 8k resolution, cinematic lighting, emphasizing trust and workmanship." class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">
+                        <img src="roofing-site-uk.png" alt="Roofing site UK" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">
                     </div>
                     <h3 class="text-2xl font-black mb-3 group-hover:text-blue-900 transition leading-tight">Why Checkatrade Leads are Failing You in 2026</h3>
                     <p class="text-gray-500 leading-relaxed">The portal model is broken. Learn why paying for shared leads is a race to the bottom on price.</p>
@@ -291,7 +308,7 @@
                 <!-- Article 2 -->
                 <a href="articles/speed-to-lead-secret.html" class="group text-left card-hover">
                     <div class="h-64 rounded-3xl overflow-hidden mb-6 bg-slate-100 shadow-md border border-gray-100">
-                        <img src="manchester-city.png" alt="Panoramic view of the Manchester UK skyline mixing historic red-brick industrial mills with modern glass skyscrapers like Deansgate Square. Moody 'blue hour' lighting, rain-slicked slate rooftops in the immediate foreground, depth of field focusing on the urban texture. Professional, corporate yet industrial atmosphere." class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">
+                        <img src="manchester-city.png" alt="Manchester City" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">
                     </div>
                     <h3 class="text-2xl font-black mb-3 group-hover:text-blue-900 transition leading-tight">The "Speed-to-Lead" Secret for Manchester Firms</h3>
                     <p class="text-gray-500 leading-relaxed">How the top 1% of roofing businesses use n8n to book quotes while they sleep.</p>
@@ -425,6 +442,22 @@
 
     <!-- Functional Scripts -->
     <script>
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            menu.classList.toggle('hidden');
+        }
+
+        btn.addEventListener('click', toggleMenu);
+
+        // Auto-close menu when a link is clicked
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
         // Calculator Logic
         const leadsSlider = document.getElementById('calc-leads');
         const leadsDisplay = document.getElementById('leads-val');
@@ -446,12 +479,12 @@
         // Form Handling
         const infoForm = document.getElementById('infoRequestForm');
         const successMsg = document.getElementById('successMessage');
-        const btn = document.getElementById('submitButton');
+        const submitBtn = document.getElementById('submitButton');
 
         infoForm.addEventListener('submit', function(e) {
             e.preventDefault(); 
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
 
             const payload = {
                 name: document.getElementById('name').value,
@@ -471,14 +504,14 @@
                     successMsg.classList.remove('hidden'); 
                 } else {
                     alert('Error sending request. Please email roger@roofflowai.co.uk directly.');
-                    btn.disabled = false;
-                    btn.innerText = 'Request Setup';
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = 'Request Setup';
                 }
             })
             .catch(() => {
                 alert('Connection error. Check your internet.');
-                btn.disabled = false;
-                btn.innerText = 'Request Setup';
+                submitBtn.disabled = false;
+                submitBtn.innerText = 'Request Setup';
             });
         });
 
@@ -486,4 +519,3 @@
     </script>
 </body>
 </html>
-

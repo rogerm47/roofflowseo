@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speed-to-Lead Quiz | RoofFlow AI</title>
     
+    <!-- Dodany Meta Description dla SEO -->
+    <meta name="description" content="Take our 2-minute Speed-to-Lead Quiz for Roofers. Find out if your business is losing revenue due to slow response times and get a custom AI roadmap.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -171,7 +174,7 @@
                 source: "Quiz Funnel"
             };
 
-            fetch('https://primary-production-58a3.up.railway.app/webhook/6f32f7fb-4745-44d2-8c09-d2bced666250', {
+            fetch('https://primary-production-58a3.up.railway.app/webhook-test/6f32f7fb-4745-44d2-8c09-d2bced666250', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload)
@@ -186,6 +189,4 @@
         });
     </script>
 </body>
-
 </html>
-

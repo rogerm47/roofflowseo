@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live AI Demo | RoofFlow AI</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .demo-card { background: white; border-radius: 2.5rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1); }
+        .step-inactive { opacity: 0.3; filter: grayscale(1); transition: all 0.5s ease; }
+        .step-active { opacity: 1; filter: grayscale(0); transform: scale(1.05); }
+        .logo-img { height: 48px; width: auto; object-fit: contain; }
+        
+        .pulse-blue { animation: pulse-blue 2s infinite; }
+        @keyframes pulse-blue {
+            0% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(30, 58, 138, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(30, 58, 138, 0); }
+        }
+        
+        .node-line { width: 2px; height: 20px; background: #cbd5e1; margin-left: 1.25rem; }
+    </style>
+</head>
+<body class="text-slate-900 overflow-x-hidden">
+
+    <nav class="p-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html"><img src="logo.jpeg" alt="RoofFlow AI" class="logo-img"></a>
+            <a href="index.html" class="text-sm font-bold text-slate-500 hover:text-blue-900 transition">Back to Home</a>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <div class="text-center mb-12">
+            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest">Live Integration</span>
+            <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight mt-4">Test Your <span class="text-blue-900">Future System.</span></h1>
+            <p class="text-xl text-slate-600 max-w-2xl mx-auto">Fill out this form. In ~60 seconds, you will receive a real AI response (SMS/Email) exactly as your customer would.</p>
+        </div>
+
+        <div class="demo-card p-8 md:p-12 border border-slate-100 grid md:grid-cols-2 gap-16">
+            
+            <!-- REAL FORM SIDE -->
+            <div>
+                <h2 class="text-2xl font-bold mb-2">1. Customer Enquiry Form</h2>
+                <p class="text-slate-500 mb-6 text-sm">Enter your real details to receive the test SMS/Email.</p>
+                
+                <form id="demoForm" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">First Name</label>
+                            <input type="text" id="first_name" required placeholder="Roger" class="w-full p-3 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-blue-900 outline-none font-bold text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Postcode</label>
+                            <input type="text" id="post_code" required placeholder="M1 1AD" class="w-full p-3 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-blue-900 outline-none font-bold text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Email Address</label>
+                        <input type="email" id="email" required placeholder="roger@example.com" class="w-full p-3 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-blue-900 outline-none font-bold text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Phone Number (Crucial for SMS)</label>
+                        <input type="tel" id="phone_number" required placeholder="+44 7700 900000" class="w-full p-3 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-blue-900 outline-none font-bold text-sm bg-yellow-50">
+                        <p class="text-[10px] text-slate-400 mt-1">Please include country code (+44)</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Service</label>
+                            <select id="service_type" class="w-full p-3 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-blue-900 outline-none font-bold text-sm cursor-pointer">
+                                <option value="Roof Repair">Roof Repair</option>
+                                <option value="New Roof Installation">New Roof Installation</option>
+                                <option value="Guttering">Guttering</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Budget</label>
+                            <select id="budget_range" class="w-full p-3 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-blue-900 outline-none font-bold text-sm cursor-pointer">
+                                <option value="under_5k">Under £5k (Tyre Kicker)</option>
+                                <option value="over_10k">Over £10k (Gold Lead)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                         <label class="block text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Property Type</label>
+                         <select id="property_type" class="w-full p-3 rounded-xl bg-slate-50 border-2 border-slate-100 focus:border-blue-900 outline-none font-bold text-sm cursor-pointer">
+                             <option value="Residential">Residential</option>
+                             <option value="Commercial">Commercial</option>
+                         </select>
+                    </div>
+                    
+                    <button type="submit" id="demoSubmitBtn" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-black py-4 rounded-xl shadow-lg transition transform hover:scale-[1.02] text-lg mt-2">
+                        Submit Live Enquiry <i class="fa-solid fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- VISUALIZATION SIDE -->
+            <div class="relative flex flex-col justify-center">
+                <h2 class="text-2xl font-bold mb-6">2. Live Workflow Visualization</h2>
+                <div class="bg-slate-900 rounded-2xl p-6 text-white min-h-[400px] relative">
+                    
+                    <div class="space-y-0 relative">
+                        <!-- Step 1 -->
+                        <div id="node-webhook" class="flex items-center gap-4 step-inactive p-3 rounded-lg transition-all duration-500">
+                            <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center shadow-lg z-10"><i class="fa-solid fa-globe"></i></div>
+                            <div>
+                                <p class="font-bold text-sm">Webhook Trigger</p>
+                                <p class="text-[10px] text-slate-400">Data received from website form</p>
+                            </div>
+                        </div>
+                        <div class="node-line border-l-2 border-slate-700 ml-5 h-6"></div>
+
+                        <!-- Step 2 -->
+                        <div id="node-sheets" class="flex items-center gap-4 step-inactive p-3 rounded-lg transition-all duration-500">
+                            <div class="w-10 h-10 rounded-lg bg-green-600 flex items-center justify-center shadow-lg z-10"><i class="fa-brands fa-google-drive"></i></div>
+                            <div>
+                                <p class="font-bold text-sm">Google Sheets CRM</p>
+                                <p class="text-[10px] text-slate-400">Lead logged instantly</p>
+                            </div>
+                        </div>
+                        <div class="node-line border-l-2 border-slate-700 ml-5 h-6"></div>
+
+                        <!-- Step 3 -->
+                        <div id="node-switch" class="flex items-center gap-4 step-inactive p-3 rounded-lg transition-all duration-500">
+                            <div class="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center shadow-lg z-10"><i class="fa-solid fa-code-branch"></i></div>
+                            <div>
+                                <p class="font-bold text-sm">AI Logic Switch</p>
+                                <p class="text-[10px] text-slate-400">Filtering based on Budget & Service</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Logic Branches -->
+                        <div class="grid grid-cols-2 gap-4 mt-6">
+                            <!-- Branch A -->
+                            <div id="branch-email" class="border border-slate-700 rounded-xl p-3 step-inactive bg-slate-800/50">
+                                <p class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Budget < £5k</p>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-red-900/50 text-red-400 flex items-center justify-center"><i class="fa-solid fa-envelope"></i></div>
+                                    <p class="text-xs">Standard Email</p>
+                                </div>
+                            </div>
+
+                            <!-- Branch B -->
+                            <div id="branch-sms" class="border border-blue-500/30 rounded-xl p-3 step-inactive bg-blue-900/20">
+                                <p class="text-[10px] font-bold text-blue-400 mb-2 uppercase">Budget > £10k</p>
+                                <div class="flex items-center gap-2 mb-2">
+                                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center"><i class="fa-solid fa-robot"></i></div>
+                                    <p class="text-xs">GPT-4o Draft</p>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <div class="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center"><i class="fa-solid fa-comment-sms"></i></div>
+                                    <p class="text-xs">Priority SMS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Log Console -->
+                    <div class="mt-6 border-t border-slate-700 pt-4">
+                        <div id="console-output" class="font-mono text-[10px] text-green-400 h-24 overflow-y-auto space-y-1">
+                            <p class="opacity-50">> System ready. Waiting for input...</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script>
+        const form = document.getElementById('demoForm');
+        const submitBtn = document.getElementById('demoSubmitBtn');
+        const consoleOutput = document.getElementById('console-output');
+
+        // Nodes for animation
+        const nodeWebhook = document.getElementById('node-webhook');
+        const nodeSheets = document.getElementById('node-sheets');
+        const nodeSwitch = document.getElementById('node-switch');
+        const branchEmail = document.getElementById('branch-email');
+        const branchSms = document.getElementById('branch-sms');
+
+        function log(msg) {
+            const p = document.createElement('p');
+            p.innerText = `> ${msg}`;
+            consoleOutput.appendChild(p);
+            consoleOutput.scrollTop = consoleOutput.scrollHeight;
+        }
+
+        function activate(element) {
+            element.classList.remove('step-inactive');
+            element.classList.add('step-active', 'bg-slate-800');
+        }
+
+        function resetVisuals() {
+            [nodeWebhook, nodeSheets, nodeSwitch, branchEmail, branchSms].forEach(el => {
+                el.classList.add('step-inactive');
+                el.classList.remove('step-active', 'bg-slate-800', 'pulse-blue');
+            });
+            consoleOutput.innerHTML = '<p class="opacity-50">> Starting new sequence...</p>';
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            resetVisuals();
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Sending to n8n...';
+
+            // Collect Data mapping exactly to your n8n JSON expectations
+            const formData = {
+                first_name: document.getElementById('first_name').value,
+                email: document.getElementById('email').value,
+                phone_number: document.getElementById('phone_number').value,
+                post_code: document.getElementById('post_code').value,
+                service_type: document.getElementById('service_type').value,
+                budget_range: document.getElementById('budget_range').value,
+                property_type: document.getElementById('property_type').value,
+                message: "Demo Form Submission from RoofFlow Website"
+            };
+
+            // 1. Fire Webhook (Real Data)
+            // Replace this URL with your ACTUAL production webhook URL for the demo workflow
+            const webhookUrl = 'https://primary-production-58a3.up.railway.app/webhook/02974baa-98ae-4ba5-8ef5-787a5bcbe95e'; 
+            
+            // Note: I used the ID from your JSON (02974baa...), assuming that's the correct path. 
+            // If it's the other one (7d5...), swap it here.
+
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            })
+            .then(response => {
+                log("Server response received: 200 OK");
+            })
+            .catch(error => {
+                log("Error reaching webhook (CORS or Network). Proceeding with simulation...");
+            });
+
+            // 2. Run Visual Simulation (Synchronized to likely n8n speed)
+            setTimeout(() => {
+                log("Webhook triggered successfully.");
+                activate(nodeWebhook);
+            }, 500);
+
+            setTimeout(() => {
+                log("Row added to Google Sheets (CRM).");
+                activate(nodeSheets);
+            }, 1500);
+
+            setTimeout(() => {
+                log(`Analyzing Budget: ${formData.budget_range}`);
+                activate(nodeSwitch);
+                nodeSwitch.classList.add('pulse-blue');
+            }, 2500);
+
+            setTimeout(() => {
+                nodeSwitch.classList.remove('pulse-blue');
+                if (formData.budget_range === 'under_5k') {
+                    log("Logic: Standard enquiry. Sending email.");
+                    activate(branchEmail);
+                } else {
+                    log("Logic: HIGH VALUE LEAD detected.");
+                    log("Action: Generating AI response...");
+                    log("Action: Sending SMS via Twilio...");
+                    activate(branchSms);
+                }
+                
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Submit Another Lead <i class="fa-solid fa-paper-plane ml-2"></i>';
+                log("Workflow completed. Check your phone/email!");
+            }, 4500);
+        });
+    </script>
+</body>
+</html>

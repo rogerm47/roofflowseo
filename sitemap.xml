@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+   <!-- Strona główna -->
    <url>
       <loc>https://www.roofflowai.co.uk/</loc>
-      <lastmod>2026-01-12</lastmod>
+      <lastmod>2026-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.0</priority>
    </url>
+   
+   <!-- Strona Demo (Kluczowa dla konwersji) -->
+   <url>
+      <loc>https://www.roofflowai.co.uk/demo.html</loc>
+      <lastmod>2026-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.9</priority>
+   </url>
+
+   <!-- Strona Quizu -->
    <url>
       <loc>https://www.roofflowai.co.uk/quiz.html</loc>
-      <lastmod>2026-01-12</lastmod>
+      <lastmod>2026-01-18</lastmod>
+      <changefreq>monthly</changefreq>
       <priority>0.8</priority>
    </url>
+
+   <!-- Artykuły (Content SEO) -->
    <url>
       <loc>https://www.roofflowai.co.uk/articles/checkatrade-failing.html</loc>
-      <lastmod>2026-01-12</lastmod>
+      <lastmod>2026-01-18</lastmod>
+      <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
    <url>
       <loc>https://www.roofflowai.co.uk/articles/speed-to-lead-secret.html</loc>
-      <lastmod>2026-01-12</lastmod>
+      <lastmod>2026-01-18</lastmod>
+      <changefreq>monthly</changefreq>
       <priority>0.7</priority>
    </url>
 </urlset>

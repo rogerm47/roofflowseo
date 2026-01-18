@@ -590,7 +590,7 @@
     <style>
       :root {
         /* Updated chat color to match dark blue theme */
-        --n8n-chat-primary-color: #1e3a8a !important; 
+        --n8n-chat-primary-color: #1e3a8a !important; 
         --n8n-chat-primary-hover-color: #172554 !important;
       }
       .n8n-chat-footer-branding { display: none !important; }
@@ -667,7 +667,8 @@
                     source: 'RoofFlow Homepage - Navy Blue Edition'
                 };
 
-                fetch('https://primary-production-58a3.app/webhook/8c1172f6-7bb0-4a5d-91e9-2bae3dd8f02f', {
+                // UPDATED WEBHOOK URL HERE
+                fetch('https://primary-production-58a3.up.railway.app/webhook/7d5bff71-463b-4dfe-91b3-efb3e8a461bc', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)

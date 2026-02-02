@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en-GB" class="smooth-scroll">
 <head>
@@ -112,7 +111,6 @@
 
             <!-- Right Side: CTA Button (Hidden on mobile) -->
             <div class="hidden md:flex justify-end">
-                <!-- Reverted back to Book Free Audit -->
                 <a href="https://cal.com/roger-malek/15min" target="_blank" class="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition shadow-md whitespace-nowrap">Book Free Audit</a>
             </div>
             
@@ -471,7 +469,7 @@
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-4xl md:text-5xl font-black mb-16 text-slate-900">Roofer Insights</h2>
             
-            <div class="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            <div class="grid md:grid-cols-3 gap-10">
                 <!-- Article 1 -->
                 <a href="articles/checkatrade-failing.html" class="group text-left card-hover">
                     <div class="h-64 rounded-3xl overflow-hidden mb-6 bg-slate-100 shadow-md border border-gray-100">
@@ -488,6 +486,15 @@
                     </div>
                     <h3 class="text-2xl font-black mb-3 group-hover:text-blue-900 transition leading-tight">The "Speed-to-Lead" Secret for Manchester Firms</h3>
                     <p class="text-gray-500 leading-relaxed">How the top 1% of roofing businesses use n8n to book quotes while they sleep.</p>
+                </a>
+
+                <!-- Article 3 (New) -->
+                <a href="articles/roofing-lead-gen-ai.html" class="group text-left card-hover">
+                    <div class="h-64 rounded-3xl overflow-hidden mb-6 bg-slate-100 shadow-md border border-gray-100">
+                        <img src="roofing-site-uk.png" alt="AI Chatbot for Roofers" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">
+                    </div>
+                    <h3 class="text-2xl font-black mb-3 group-hover:text-blue-900 transition leading-tight">Beyond Traditional Lead Gen: Why UK Roofers are Switching to AI</h3>
+                    <p class="text-gray-500 leading-relaxed">Discover why automated response systems are replacing old lead gen models in 2026.</p>
                 </a>
             </div>
         </div>
@@ -565,6 +572,7 @@
             <div class="text-center md:text-left">
                 <h4 class="text-white font-black mb-8 uppercase tracking-widest text-xs">Services</h4>
                 <ul class="space-y-4 text-sm font-bold">
+                    <li><a href="demo.html" class="hover:text-white transition">Speed-to-Lead System</a></li>
                     <li><a href="#" class="hover:text-white transition">n8n Workflow Builds</a></li>
                     <li><a href="#" class="hover:text-white transition">AI Appointment Booking</a></li>
                     <li><a href="#" class="hover:text-white transition">Lead Qualification</a></li>
@@ -591,7 +599,7 @@
     <style>
       :root {
         /* Updated chat color to match dark blue theme */
-        --n8n-chat-primary-color: #1e3a8a !important; 
+        --n8n-chat-primary-color: #1e3a8a !important; 
         --n8n-chat-primary-hover-color: #172554 !important;
       }
       .n8n-chat-footer-branding { display: none !important; }
@@ -668,8 +676,7 @@
                     source: 'RoofFlow Homepage - Navy Blue Edition'
                 };
 
-                // UPDATED WEBHOOK URL HERE
-                fetch('https://primary-production-58a3.up.railway.app/webhook/7d5bff71-463b-4dfe-91b3-efb3e8a461bc', {
+                fetch('https://primary-production-58a3.app/webhook/7d5bff71-463b-4dfe-91b3-efb3e8a461bc', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)

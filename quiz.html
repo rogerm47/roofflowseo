@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Speed-to-Lead Quiz | RoofFlow AI</title>
     
-    <!-- Dodany Meta Description dla SEO -->
-    <meta name="description" content="Take our 2-minute Speed-to-Lead Quiz for Roofers. Find out if your business is losing revenue due to slow response times and get a custom AI roadmap.">
+    <meta name="description" content="Take our 2-minute Speed-to-Lead Quiz for Roofers. Find out if your business is losing revenue due to slow response times and experience our live AI demo.">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
@@ -16,28 +15,23 @@
         body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: white; }
         .fade-in { animation: fadeIn 0.5s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        /* Logo Optimization */
         .logo-img { height: 48px; width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
 
-    <!-- Simple Nav -->
     <nav class="p-6 flex justify-between items-center">
         <a href="index.html" class="block"><img src="logo.jpeg" alt="RoofFlow AI" class="logo-img grayscale brightness-200"></a>
         <a href="index.html" class="text-sm font-bold text-gray-400 hover:text-white transition">Exit Quiz <i class="fa-solid fa-xmark ml-1"></i></a>
     </nav>
 
-    <!-- Quiz Container -->
     <main class="flex-grow flex items-center justify-center p-4">
         <div class="max-w-2xl w-full bg-slate-800 p-8 md:p-12 rounded-[2rem] shadow-2xl border border-slate-700 relative overflow-hidden">
             
-            <!-- Progress Bar -->
             <div class="absolute top-0 left-0 w-full h-2 bg-slate-700">
                 <div id="progress-bar" class="h-full bg-blue-500 transition-all duration-500" style="width: 25%;"></div>
             </div>
 
-            <!-- Question 1 -->
             <div id="q1" class="question-step fade-in">
                 <h2 class="text-3xl font-black mb-8 leading-tight">When a new lead comes in, how quickly do you usually reply?</h2>
                 <div class="grid gap-4">
@@ -56,7 +50,6 @@
                 </div>
             </div>
 
-            <!-- Question 2 -->
             <div id="q2" class="question-step hidden fade-in">
                 <h2 class="text-3xl font-black mb-8 leading-tight">Do you currently have an automated system to handle weekend or evening enquiries?</h2>
                 <div class="grid gap-4">
@@ -72,7 +65,6 @@
                 </div>
             </div>
 
-            <!-- Question 3 -->
             <div id="q3" class="question-step hidden fade-in">
                 <h2 class="text-3xl font-black mb-8 leading-tight">How many potential jobs do you think you miss because you're busy on a roof?</h2>
                 <div class="grid gap-4">
@@ -88,40 +80,30 @@
                 </div>
             </div>
 
-            <!-- Loading Screen -->
             <div id="loading" class="hidden text-center py-10 fade-in">
                 <i class="fa-solid fa-circle-notch fa-spin text-5xl text-blue-500 mb-6"></i>
                 <h3 class="text-2xl font-bold">Analyzing your process...</h3>
-                <p class="text-gray-400 mt-2">Checking industry benchmarks for Manchester...</p>
+                <p class="text-gray-400 mt-2">Checking industry benchmarks for the UK...</p>
             </div>
 
-            <!-- Final Result (Funnel) -->
             <div id="result" class="hidden text-center fade-in">
-                <div class="inline-block bg-green-500/20 text-green-400 px-4 py-1 rounded-full font-bold uppercase text-xs tracking-widest mb-6">
-                    <i class="fa-solid fa-check-circle mr-2"></i> Qualification Complete
+                <div class="inline-block bg-red-500/20 text-red-400 px-4 py-1 rounded-full font-bold uppercase text-xs tracking-widest mb-6">
+                    <i class="fa-solid fa-triangle-exclamation mr-2"></i> Critical Leak Detected
                 </div>
-                <h2 class="text-3xl md:text-4xl font-black mb-6">You Are Losing Revenue.</h2>
+                <h2 class="text-3xl md:text-4xl font-black mb-4">You Are Losing Revenue.</h2>
                 <p class="text-lg text-gray-300 mb-8 leading-relaxed">
-                    Based on your answers, your manual follow-up process is causing "Speed-to-Lead" leakage. You are a perfect candidate for our AI Automation Pilot.
+                    Based on your answers, your current process is bleeding high-value leads. Don't take our word for it. See exactly how our system secures a customer while you are on the roof.
                 </p>
                 
-                <div class="bg-slate-900 p-6 rounded-xl border border-slate-700 mb-8 text-left">
-                    <h4 class="font-bold text-white mb-4 border-b border-slate-700 pb-2">Your Recommended Plan:</h4>
-                    <ul class="space-y-3 text-sm text-gray-300">
-                        <li class="flex items-start"><i class="fa-solid fa-bolt text-yellow-400 mt-1 mr-3"></i> Install "Instant Reply" AI (stops leakage)</li>
-                        <li class="flex items-start"><i class="fa-solid fa-robot text-blue-400 mt-1 mr-3"></i> Automate weekend lead capture</li>
-                        <li class="flex items-start"><i class="fa-solid fa-calendar-check text-green-400 mt-1 mr-3"></i> Sync booking directly to your calendar</li>
-                    </ul>
+                <div class="bg-slate-900 p-8 rounded-xl border border-blue-500/30 mb-8">
+                    <h4 class="font-black text-white text-xl mb-2">Live Demonstration</h4>
+                    <p class="text-sm text-gray-400 mb-6">Step 1: Click the button below to call our automated line.<br>Step 2: Let it ring, hang up immediately.<br>Step 3: Watch your phone.</p>
+                    
+                    <a href="tel:+447897036952" id="demoCallBtn" class="block w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-5 rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)] transition transform hover:scale-[1.02] text-xl">
+                        Call +44 7897 036952 Now <i class="fa-solid fa-phone-volume ml-2"></i>
+                    </a>
                 </div>
-
-                <!-- Final CTA Form -->
-                <form id="quizForm" class="space-y-4">
-                    <input type="text" id="name" required placeholder="Enter your Name" class="w-full p-4 rounded-xl bg-slate-700 border border-slate-600 focus:border-blue-500 outline-none text-white">
-                    <input type="email" id="email" required placeholder="Enter your Email" class="w-full p-4 rounded-xl bg-slate-700 border border-slate-600 focus:border-blue-500 outline-none text-white">
-                    <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-500 text-white font-black py-5 rounded-xl shadow-lg transition transform hover:scale-[1.02] text-xl">
-                        Get My 5 Critical Lead Generation Problems <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </button>
-                </form>
+                <p class="text-xs text-gray-500">Standard network rates apply. We will never spam your number.</p>
             </div>
 
         </div>
@@ -133,14 +115,9 @@
 
     <script>
         function nextStep(step) {
-            // Hide all questions
             document.querySelectorAll('.question-step').forEach(el => el.classList.add('hidden'));
-            
-            // Update progress
             const progress = step * 25;
             document.getElementById('progress-bar').style.width = progress + '%';
-
-            // Show next question
             document.getElementById('q' + step).classList.remove('hidden');
         }
 
@@ -148,47 +125,27 @@
             document.querySelectorAll('.question-step').forEach(el => el.classList.add('hidden'));
             document.getElementById('progress-bar').style.width = '100%';
             
-            // Show loading
             const loader = document.getElementById('loading');
             loader.classList.remove('hidden');
 
-            // Simulate calculation delay
             setTimeout(() => {
                 loader.classList.add('hidden');
                 document.getElementById('result').classList.remove('hidden');
             }, 2000);
         }
 
-        // Handle Form Submit
-        const form = document.getElementById('quizForm');
-        const btn = document.getElementById('submitBtn');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            btn.disabled = true;
-            btn.innerText = "Processing...";
-
-            const payload = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                source: "Quiz Funnel"
-            };
-
-            fetch('https://primary-production-58a3.up.railway.app/webhook/6f32f7fb-4745-44d2-8c09-d2bced666250', {
+        // Track Intent to Call
+        document.getElementById('demoCallBtn')?.addEventListener('click', function() {
+            console.log("Demo call initiated");
+            // Możesz wpiąć tu zapytanie fetch do n8n, aby śledzić kliknięcia w przycisk jako oddzielną metrykę.
+            /*
+            fetch('https://primary-production-58a3.up.railway.app/webhook/intent-tracking', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            }).then(() => {
-                alert("Success! We'll send your roadmap shortly.");
-                window.location.href = 'index.html'; // Redirect back to home
-            }).catch(() => {
-                alert("Error. Please try again.");
-                btn.disabled = false;
-                btn.innerText = "Get My Custom Roadmap";
-            });
+                body: JSON.stringify({ event: 'demo_button_clicked', source: 'Quiz Funnel' })
+            }).catch(e => console.error(e));
+            */
         });
     </script>
 </body>
 </html>
-
-

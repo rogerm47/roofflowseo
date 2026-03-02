@@ -4,12 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- SEO Metadata -->
     <title>RoofFlow AI | Stop Leaking Roofing Jobs | AI Sales for UK Roofers</title>
     <meta name="description" content="Manchester's leading AI automation for roofers. Our AI responds to leads in 60s and books quotes 24/7. Stop losing revenue to faster competitors.">
-    <meta name="keywords" content="AI for roofers UK, roofing automation Manchester, speed to lead, n8n automation trades, roofer lead management">
+    <meta name="keywords" content="AI for roofers UK, roofing automation Manchester, speed to lead, automated lead management trades">
 
-    <!-- Schema.org Structural Data for Local SEO -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -38,112 +36,76 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        body { font-family: 'Inter', sans-serif; }
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
         .hero-bg {
             background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url('https://images.unsplash.com/photo-1632759145351-1d592919f522?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
         }
-        /* Dark Navy Gradient */
         .gradient-text { background: linear-gradient(90deg, #1e3a8a, #3b82f6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .card-hover:hover { transform: translateY(-5px); transition: all 0.3s ease; }
         
-        /* Logo Optimization - Larger and clearer */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            height: 100%;
-        }
-        .logo-img {
-            /* Increased height to 64px for better visibility */
-            height: 64px; 
-            width: auto;
-            object-fit: contain;
-            /* Ensure crisp rendering */
-            image-rendering: -webkit-optimize-contrast;
-        }
+        .logo-container { display: flex; align-items: center; height: 100%; }
+        .logo-img { height: 64px; width: auto; object-fit: contain; image-rendering: -webkit-optimize-contrast; }
 
-        /* Marquee Animation for Scrolling Text */
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .animate-marquee {
-            display: flex;
-            width: max-content;
-            animation: marquee 25s linear infinite;
-        }
-        /* Pause animation on hover for readability */
-        .animate-marquee:hover {
-            animation-play-state: paused;
-        }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .animate-marquee { display: flex; width: max-content; animation: marquee 25s linear infinite; }
+        .animate-marquee:hover { animation-play-state: paused; }
     </style>
 </head>
 <body class="text-gray-800 antialiased bg-white">
 
-    <!-- Navigation -->
     <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-gray-100">
-        <!-- Używamy relative dla pozycjonowania mobilnego i grid dla desktopu -->
         <div class="max-w-7xl mx-auto px-4 h-24 relative flex items-center justify-center md:grid md:grid-cols-3 md:justify-between">
             
-            <!-- Mobile Menu Button (Hamburger) - Absolute Right on Mobile -->
             <div class="absolute right-4 md:hidden z-20">
                 <button id="mobile-menu-btn" class="text-gray-800 focus:outline-none p-2 hover:text-blue-900 transition">
                     <i class="fa-solid fa-bars text-3xl"></i>
                 </button>
             </div>
 
-            <!-- Left Side: Links (Hidden on mobile) -->
             <div class="hidden md:flex space-x-8 font-semibold text-gray-600 justify-start">
+                <a href="#live-demo" class="hover:text-blue-900 transition whitespace-nowrap text-blue-700 font-bold">Live Demo</a>
                 <a href="#how-it-works" class="hover:text-blue-900 transition whitespace-nowrap">How it Works</a>
                 <a href="#calculator" class="hover:text-blue-900 transition whitespace-nowrap">ROI Calculator</a>
-                <a href="#insights" class="hover:text-blue-900 transition whitespace-nowrap">Insights</a>
-                <!-- Dodano link do Demo -->
-                <a href="demo.html" class="hover:text-blue-900 transition whitespace-nowrap text-blue-700 font-bold">Demo</a>
             </div>
 
-            <!-- Center: Logo -->
             <div class="flex justify-center w-full md:w-auto">
                 <a href="#" class="logo-container">
                     <img src="logo.jpeg" alt="RoofFlow AI Logo" class="logo-img">
                 </a>
             </div>
 
-            <!-- Right Side: CTA Button (Hidden on mobile) -->
             <div class="hidden md:flex justify-end">
                 <a href="https://cal.com/roger-malek/15min" target="_blank" class="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition shadow-md whitespace-nowrap">Book Free Audit</a>
             </div>
             
         </div>
 
-        <!-- Mobile Menu Dropdown (Hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-24 shadow-xl z-10">
             <div class="flex flex-col p-6 space-y-6 text-center">
+                <a href="#live-demo" class="text-xl font-bold text-blue-700 hover:text-blue-900 py-2 mobile-link">Live Demo</a>
                 <a href="#how-it-works" class="text-xl font-bold text-gray-700 hover:text-blue-900 py-2 mobile-link">How it Works</a>
                 <a href="#calculator" class="text-xl font-bold text-gray-700 hover:text-blue-900 py-2 mobile-link">ROI Calculator</a>
-                <a href="#insights" class="text-xl font-bold text-gray-700 hover:text-blue-900 py-2 mobile-link">Insights</a>
-                <!-- Dodano link do Demo w menu mobilnym -->
-                <a href="demo.html" class="text-xl font-bold text-blue-700 hover:text-blue-900 py-2 mobile-link">Demo</a>
                 <a href="https://cal.com/roger-malek/15min" target="_blank" class="bg-blue-900 text-white px-6 py-4 rounded-xl hover:bg-blue-800 transition shadow-md font-bold block mx-4 mobile-link">Book Free Audit</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="hero-bg min-h-screen flex items-center justify-center text-center px-4 pt-24 relative overflow-hidden">
         <div class="max-w-5xl mx-auto text-white relative z-10">
             <span class="bg-blue-900/40 text-blue-200 border border-blue-500/30 px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase mb-6 inline-block">
-                Trusted by UK Roofing Companies
+                Trusted by UK Tradesmen
             </span>
             <h1 class="text-5xl md:text-7xl font-black mb-6 leading-[1.1]">
                 Stop Losing <span class="gradient-text">£50,000+</span><br> A Year To Slow Lead Responses.
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed font-light">
-                Our AI system responds to your roofing enquiries in <span class="text-white font-semibold">60 seconds</span> while you are on the roof. Stop quoting at 9 PM and start winning jobs at 9 AM.
+                Our automated system responds to your incoming enquiries in <span class="text-white font-semibold">60 seconds</span> while you are on the tools. Stop quoting at 9 PM and start winning jobs at 9 AM.
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <a href="#lead-form" class="w-full md:w-auto bg-blue-900 hover:bg-blue-800 text-white font-black text-xl py-5 px-12 rounded-xl shadow-2xl transition transform hover:scale-105 active:scale-95 border border-blue-800">
-                    Start Free 14-Day Trial
+                <a href="#live-demo" class="w-full md:w-auto bg-blue-900 hover:bg-blue-800 text-white font-black text-xl py-5 px-12 rounded-xl shadow-2xl transition transform hover:scale-105 active:scale-95 border border-blue-800">
+                    See The System In Action
                 </a>
                 <a href="#calculator" class="w-full md:w-auto bg-white/10 hover:bg-white/20 text-white font-bold text-xl py-5 px-12 rounded-xl backdrop-blur-md border border-white/30 transition">
                     Calculate My Loss
@@ -153,67 +115,67 @@
         <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
     </header>
 
-    <!-- Customer Trust - ANIMATED MARQUEE (Cities) -->
-    <div class="bg-white py-12 overflow-hidden">
-        <div class="max-w-full mx-auto text-center">
-            <p class="text-gray-500 font-bold text-xs uppercase tracking-widest mb-8">Winning more jobs for roofers in</p>
-            
-            <!-- Scrolling Container -->
-            <div class="relative w-full overflow-hidden">
-                <div class="animate-marquee whitespace-nowrap">
-                    <!-- First Set of Cities -->
-                    <div class="flex gap-16 mx-8 text-3xl font-black text-black uppercase italic">
-                        <span>Manchester</span>
-                        <span>London</span>
-                        <span>Leeds</span>
-                        <span>Bristol</span>
-                        <span>Birmingham</span>
-                        <span>Liverpool</span>
-                        <span>Sheffield</span>
-                        <span>Newcastle</span>
-                    </div>
-                    <!-- Duplicate Set for Seamless Loop -->
-                    <div class="flex gap-16 mx-8 text-3xl font-black text-black uppercase italic">
-                        <span>Manchester</span>
-                        <span>London</span>
-                        <span>Leeds</span>
-                        <span>Bristol</span>
-                        <span>Birmingham</span>
-                        <span>Liverpool</span>
-                        <span>Sheffield</span>
-                        <span>Newcastle</span>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-
-    <!-- NEW SECTION: Quiz CTA -->
-    <section class="bg-slate-50 py-12 border-y border-gray-100">
+    <section id="live-demo" class="bg-slate-50 py-20 border-y border-gray-100">
         <div class="max-w-5xl mx-auto px-4">
-            <div id="quiz" class="bg-blue-900 rounded-[2.5rem] p-8 md:p-12 text-white shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden transform hover:-translate-y-1 transition duration-300">
-                <!-- Background Pattern/Icon -->
+            <div class="bg-blue-900 rounded-[2.5rem] p-8 md:p-16 text-white shadow-2xl relative overflow-hidden transform hover:-translate-y-1 transition duration-300 text-center">
+                
                 <div class="absolute top-0 right-0 p-4 opacity-10 pointer-events-none">
-                    <i class="fa-solid fa-brain text-9xl"></i>
+                    <i class="fa-solid fa-phone-volume text-9xl"></i>
                 </div>
                 
-                <div class="relative z-10 max-w-xl text-center md:text-left">
-                    <h3 class="text-2xl md:text-4xl font-black mb-3 leading-tight">Is Your Roofing Business AI-Ready?</h3>
-                    <p class="text-blue-100 font-medium text-lg opacity-90">Take our 2-minute "Speed to Lead" quiz and get "The 5 Critical Lead Generation Problems Killing Your Roofing Profits" Bonus PDF.</p>
-                </div>
-                
-                <div class="relative z-10 w-full md:w-auto">
-                    <a href="quiz.html" class="bg-white text-blue-900 font-black py-4 px-10 rounded-2xl hover:bg-blue-50 transition shadow-lg text-lg uppercase tracking-wider block text-center whitespace-nowrap">
-                        Start Roofer Quiz <i class="fa-solid fa-arrow-right ml-2"></i>
+                <div class="relative z-10 max-w-3xl mx-auto">
+                    <div class="inline-block bg-red-500/20 text-red-400 px-4 py-1 rounded-full font-bold uppercase text-xs tracking-widest mb-6 border border-red-500/30">
+                        <i class="fa-solid fa-triangle-exclamation mr-2"></i> Stop Bleeding Revenue
+                    </div>
+                    <h3 class="text-4xl md:text-5xl font-black mb-6 leading-tight">See It In Action. <br>Right Now.</h3>
+                    <p class="text-blue-100 font-medium text-lg md:text-xl opacity-90 mb-10 leading-relaxed">Don't take our word for it. Call our automated dispatch line right now, let it ring, hang up immediately, and watch your phone. Experience how we secure a customer for you in 4 seconds flat.</p>
+                    
+                    <a href="tel:+447897036952" id="demoCallBtnTracker" class="inline-block w-full md:w-auto bg-white text-blue-900 font-black py-5 px-16 rounded-2xl hover:bg-blue-50 transition shadow-[0_0_30px_rgba(255,255,255,0.3)] text-2xl uppercase tracking-wider block text-center whitespace-nowrap">
+                        Call +44 7897 036952 <i class="fa-solid fa-arrow-right ml-2"></i>
                     </a>
+                    <p class="text-xs text-blue-300 mt-6 font-light">Standard network rates apply. Your number will never be saved or spammed.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white" id="industry-data">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-black text-slate-900">The Brutal Reality of Local Search</h2>
+                <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto">Why your marketing budget is burning while you are on the tools.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-slate-50 p-10 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-900 text-3xl mb-6">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+                    <h3 class="text-5xl font-black text-slate-900 mb-4">78%</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">of UK homeowners book the first local tradesperson who replies to their enquiry.</p>
+                </div>
+                
+                <div class="bg-slate-50 p-10 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-900 text-3xl mb-6">
+                        <i class="fa-solid fa-phone-slash"></i>
+                    </div>
+                    <h3 class="text-5xl font-black text-slate-900 mb-4">60%</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">of inbound calls to tradesmen go completely unanswered during business hours.</p>
+                </div>
+
+                <div class="bg-slate-50 p-10 rounded-[2rem] shadow-sm border border-gray-100 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center text-blue-900 text-3xl mb-6">
+                        <i class="fa-solid fa-sterling-sign"></i>
+                    </div>
+                    <h3 class="text-5xl font-black text-slate-900 mb-4">£20+</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">is wasted on Google Ads every time a potential customer calls you, goes to voicemail, and clicks the next ad.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Problem Section -->
-    <section class="py-24 bg-white" id="how-it-works">
+    <section class="py-24 bg-slate-50" id="how-it-works">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-20 items-center">
             <div class="order-2 md:order-1">
                 <div class="bg-slate-900 rounded-[2.5rem] p-10 text-white shadow-2xl relative">
@@ -221,14 +183,14 @@
                         <i class="fa-solid fa-bolt-lightning text-3xl text-white"></i>
                     </div>
                     <h3 class="text-3xl font-bold mb-8 flex items-center">
-                        <i class="fa-solid fa-robot text-blue-500 mr-4"></i> The AI Difference
+                        <i class="fa-solid fa-robot text-blue-500 mr-4"></i> The Automation Difference
                     </h3>
                     <div class="space-y-6">
                         <div class="border-b border-white/10 pb-4">
                             <p class="text-sm text-gray-400 uppercase font-bold mb-1">Lead Response</p>
                             <div class="flex justify-between items-end">
                                 <span class="text-red-400 text-sm">Competitor: 4 hours</span>
-                                <span class="text-blue-400 font-bold text-xl tracking-tight">RoofFlow: 45 seconds</span>
+                                <span class="text-blue-400 font-bold text-xl tracking-tight">RoofFlow: 4 seconds</span>
                             </div>
                         </div>
                         <div class="border-b border-white/10 pb-4">
@@ -250,27 +212,26 @@
             </div>
             <div class="order-1 md:order-2">
                 <h2 class="text-4xl md:text-5xl font-black text-slate-900 mb-8 leading-tight">
-                    In the Roofing Business, <br><span class="text-blue-900 italic">Speed is Profit.</span>
+                    In the Services Business, <br><span class="text-blue-900 italic">Speed is Profit.</span>
                 </h2>
                 <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-                    UK homeowners enquire with 3-5 companies at once. If you're on a roof and don't reply within 5 minutes, <span class="font-bold text-slate-900">you've already lost the job.</span>
+                    UK homeowners enquire with 3-5 companies at once. If you're on a job and don't reply immediately, <span class="font-bold text-slate-900">you've already lost the lead.</span>
                 </p>
                 <ul class="space-y-4">
                     <li class="flex items-center text-lg font-semibold text-slate-700">
-                        <i class="fa-solid fa-circle-check text-green-600 mr-3"></i> AI qualifies the lead (Postcode, Job Type)
+                        <i class="fa-solid fa-circle-check text-green-600 mr-3"></i> System automatically intercepts missed calls
                     </li>
                     <li class="flex items-center text-lg font-semibold text-slate-700">
-                        <i class="fa-solid fa-circle-check text-green-600 mr-3"></i> Automatically books site visits in your calendar
+                        <i class="fa-solid fa-circle-check text-green-600 mr-3"></i> Instantly qualifies the lead (Postcode, Job Type) via text
                     </li>
                     <li class="flex items-center text-lg font-semibold text-slate-700">
-                        <i class="fa-solid fa-circle-check text-green-600 mr-3"></i> You wake up to a booked-out week
+                        <i class="fa-solid fa-circle-check text-green-600 mr-3"></i> You wake up to secured jobs, not missed voicemails
                     </li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Lead Leak Calculator -->
     <section class="py-24 bg-slate-900 text-white overflow-hidden" id="calculator">
         <div class="max-w-6xl mx-auto px-4">
             <div class="text-center mb-16">
@@ -287,7 +248,6 @@
                     </div>
                     <div>
                         <label class="block text-sm font-black text-gray-400 uppercase tracking-widest mb-4">Avg. Job Value (£)</label>
-                        <!-- Zmniejszono rozmiar czcionki z text-3xl na text-2xl -->
                         <input type="number" id="calc-value" value="5000" class="w-full p-5 bg-slate-50 rounded-2xl border-2 border-slate-100 focus:border-blue-900 outline-none text-2xl font-black transition">
                     </div>
                     <div>
@@ -302,14 +262,13 @@
 
                 <div class="bg-gradient-to-br from-blue-900 to-slate-900 p-12 rounded-[2.5rem] text-center text-white shadow-xl relative">
                     <p class="text-blue-100 font-bold uppercase tracking-widest text-sm mb-4">Annual Revenue Lost</p>
-                    <!-- Zmniejszono rozmiar czcionki z text-6xl md:text-8xl na text-4xl md:text-6xl -->
                     <div class="text-4xl md:text-6xl font-black mb-8 tracking-tighter">
                         £<span id="annual-leak">60,000</span>
                     </div>
                     <p class="text-blue-100 italic mb-10 leading-relaxed text-lg">
                         "This is money your competitors are taking simply because they answered the phone first."
                     </p>
-                    <a href="#lead-form" class="inline-block bg-white text-blue-900 font-black py-5 px-10 rounded-2xl shadow-lg transition transform hover:scale-105 active:scale-95 text-xl uppercase tracking-tight">
+                    <a href="#live-demo" class="inline-block bg-white text-blue-900 font-black py-5 px-10 rounded-2xl shadow-lg transition transform hover:scale-105 active:scale-95 text-xl uppercase tracking-tight">
                         Stop The Leak Today
                     </a>
                 </div>
@@ -317,190 +276,38 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS SECTION -->
-    <section class="py-24 bg-slate-50" id="testimonials">
-        <div class="max-w-7xl mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-5xl font-black text-slate-900">What UK Roofers Are Saying</h2>
-                <p class="text-xl text-gray-600 mt-4">Real results from contractors who automated their sales.</p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Testimonial 1 -->
-                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 card-hover flex flex-col">
-                    <div class="flex text-yellow-400 text-lg mb-6">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-8 flex-grow">"Honestly, RoofFlow AI changed everything. Before, we were constantly chasing our tails. Leads would come in, and by the time we got back to them, they'd already gone with someone else. Now we book jobs while I'm sleeping."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">J</div>
-                        <div>
-                            <p class="font-bold text-slate-900">John D.</p>
-                            <p class="text-sm text-gray-500">Director @ Manchester</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 2 -->
-                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 card-hover flex flex-col">
-                    <div class="flex text-yellow-400 text-lg mb-6">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-8 flex-grow">"The fact that it replies at 9 PM while I'm at the pub is brilliant. We were losing £50k a year just by being slow. Roger sorted the automation in 24 hours and it's already paid for itself."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">M</div>
-                        <div>
-                            <p class="font-bold text-slate-900">Mark S.</p>
-                            <p class="text-sm text-gray-500">Owner @ Leeds</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 3 -->
-                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 card-hover flex flex-col">
-                    <div class="flex text-yellow-400 text-lg mb-6">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-8 flex-grow">"Finally, a system that filters out the tyre-kickers. The AI asks for the postcode and job type before it even touches my diary. It saves me hours of wasted travel every week."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">S</div>
-                        <div>
-                            <p class="font-bold text-slate-900">Steven T.</p>
-                            <p class="text-sm text-gray-500">Owner @ Bristol</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 4 -->
-                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 card-hover flex flex-col">
-                    <div class="flex text-yellow-400 text-lg mb-6">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-8 flex-grow">"We were getting plenty of leads but losing them to the 'faster' guys. Since installing Roger's system, our conversion rate for full re-roofs has jumped by 30%."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">D</div>
-                        <div>
-                            <p class="font-bold text-slate-900">Dave M.</p>
-                            <p class="text-sm text-gray-500">MD @ Stockport</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 5 -->
-                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 card-hover flex flex-col">
-                    <div class="flex text-yellow-400 text-lg mb-6">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-8 flex-grow">"I was skeptical about AI, but RoofFlow acts just like a professional secretary. It’s polite, fast, and knows exactly how to qualify an enquiry while I’m on a roof."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">P</div>
-                        <div>
-                            <p class="font-bold text-slate-900">Paul W.</p>
-                            <p class="text-sm text-gray-500">Director @ Birmingham</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 6 -->
-                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 card-hover flex flex-col">
-                    <div class="flex text-yellow-400 text-lg mb-6">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-8 flex-grow">"The Lead Leak Calculator was a wake-up call. I realized I was losing £50k a year just by being slow. Roger sorted the automation in 24 hours."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">G</div>
-                        <div>
-                            <p class="font-bold text-slate-900">Gary H.</p>
-                            <p class="text-sm text-gray-500">MD @ Sheffield</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 7 -->
-                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 card-hover flex flex-col">
-                    <div class="flex text-yellow-400 text-lg mb-6">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-8 flex-grow">"No more answering leads while I’m trying to eat dinner with the family. The AI handles the 'Speed-to-Lead' part and I just check my calendar for the next day's site visits."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">M</div>
-                        <div>
-                            <p class="font-bold text-slate-900">Mike L.</p>
-                            <p class="text-sm text-gray-500">Owner @ Liverpool</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 8 -->
-                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 card-hover flex flex-col">
-                    <div class="flex text-yellow-400 text-lg mb-6">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-8 flex-grow">"Our response time went from 4 hours to 40 seconds. We're now consistently the first quote our customers receive, and in this business, that means we win the job."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">C</div>
-                        <div>
-                            <p class="font-bold text-slate-900">Chris B.</p>
-                            <p class="text-sm text-gray-500">Director @ London</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial 9 -->
-                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100 card-hover flex flex-col">
-                    <div class="flex text-yellow-400 text-lg mb-6">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <p class="text-gray-600 italic mb-8 flex-grow">"The automation Roger built using n8n is flawless. It connects my website, Facebook leads, and my Google Calendar perfectly. Highly recommended for any busy tradesman."</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-blue-900 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">A</div>
-                        <div>
-                            <p class="font-bold text-slate-900">Alan R.</p>
-                            <p class="text-sm text-gray-500">Owner @ Newcastle</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Insights Section -->
     <section class="py-24 bg-white" id="insights">
         <div class="max-w-7xl mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-5xl font-black mb-16 text-slate-900">Roofer Insights</h2>
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-slate-900">Industry Insights</h2>
             
             <div class="grid md:grid-cols-3 gap-10">
-                <!-- Article 1 -->
                 <a href="articles/checkatrade-failing.html" class="group text-left card-hover">
                     <div class="h-64 rounded-3xl overflow-hidden mb-6 bg-slate-100 shadow-md border border-gray-100">
                         <img src="roofing-site-uk.png" alt="Roofing site UK" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">
                     </div>
-                    <h3 class="text-2xl font-black mb-3 group-hover:text-blue-900 transition leading-tight">Why Checkatrade Leads are Failing You in 2026</h3>
+                    <h3 class="text-2xl font-black mb-3 group-hover:text-blue-900 transition leading-tight">Why Shared Portals Are Failing You in 2026</h3>
                     <p class="text-gray-500 leading-relaxed">The portal model is broken. Learn why paying for shared leads is a race to the bottom on price.</p>
                 </a>
 
-                <!-- Article 2 -->
                 <a href="articles/speed-to-lead-secret.html" class="group text-left card-hover">
                     <div class="h-64 rounded-3xl overflow-hidden mb-6 bg-slate-100 shadow-md border border-gray-100">
                         <img src="manchester-city.png" alt="Manchester City" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">
                     </div>
                     <h3 class="text-2xl font-black mb-3 group-hover:text-blue-900 transition leading-tight">The "Speed-to-Lead" Secret for Manchester Firms</h3>
-                    <p class="text-gray-500 leading-relaxed">How the top 1% of roofing businesses use n8n to book quotes while they sleep.</p>
+                    <p class="text-gray-500 leading-relaxed">How the top 1% of businesses use automation to book quotes while they sleep.</p>
                 </a>
 
-                <!-- Article 3 (New) -->
                 <a href="articles/roofing-lead-gen-ai.html" class="group text-left card-hover">
                     <div class="h-64 rounded-3xl overflow-hidden mb-6 bg-slate-100 shadow-md border border-gray-100">
                         <img src="ai_chatbot_roof_lead_gen.png" alt="AI Chatbot for Roofers" class="w-full h-full object-cover group-hover:scale-110 transition duration-500 grayscale group-hover:grayscale-0">
                     </div>
-                    <h3 class="text-2xl font-black mb-3 group-hover:text-blue-900 transition leading-tight">Beyond Traditional Lead Gen: Why UK Roofers are Switching to AI</h3>
+                    <h3 class="text-2xl font-black mb-3 group-hover:text-blue-900 transition leading-tight">Beyond Traditional Lead Gen</h3>
                     <p class="text-gray-500 leading-relaxed">Discover why automated response systems are replacing old lead gen models in 2026.</p>
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- About Roger -->
     <section class="py-24 bg-slate-50">
         <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center gap-16">
             <div class="w-full md:w-2/5">
@@ -513,11 +320,11 @@
             </div>
             <div class="w-full md:w-3/5 text-center md:text-left">
                 <h2 class="text-4xl font-black mb-2 text-slate-900 uppercase">Meet Roger Malek</h2>
-                <p class="text-blue-900 font-bold mb-6 text-lg tracking-wide">From Building Skyscrapers to AI & Automation</p>
+                <p class="text-blue-900 font-bold mb-6 text-lg tracking-wide">From Building Skyscrapers to Automation Engineer</p>
                 
                 <div class="text-lg text-gray-600 leading-relaxed mb-8 space-y-4 font-light">
                     <p class="italic">"I'm not just a 'tech guy' sitting behind a desk. I've worked in construction, building skyscrapers. I know exactly what it feels like to be on site, in the rain, trying to get a job done while your phone keeps ringing."</p>
-                    <p>I built RoofFlow AI because I understand the trade. You shouldn't lose profitable jobs just because you're busy doing the actual work. I use my construction background and AI expertise to give you an unfair advantage over the big firms.</p>
+                    <p>I built RoofFlow AI because I understand the trade. You shouldn't lose profitable jobs just because you're busy doing the actual work. I use my construction background and technical expertise to give you an unfair advantage over the big firms.</p>
                 </div>
 
                 <div class="flex flex-wrap justify-center md:justify-start gap-4">
@@ -528,43 +335,13 @@
         </div>
     </section>
 
-    <!-- Final Setup Form -->
-    <section class="py-24 bg-white" id="lead-form">
-        <div class="max-w-3xl mx-auto px-4 text-center">
-            <h2 class="text-4xl md:text-6xl font-black mb-8 text-slate-900">Get Your <span class="text-blue-900">Free Setup</span></h2>
-            <p class="text-xl text-gray-500 mb-12">Claim your 14-day free trial. We install it, you win jobs, or you walk away with a free AI roadmap.</p>
-            
-            <div class="bg-slate-900 p-8 md:p-12 rounded-[3rem] text-left shadow-2xl border-t-8 border-blue-900">
-                <form id="infoRequestForm" class="space-y-6">
-                    <div>
-                        <label class="block text-xs font-black text-gray-500 uppercase tracking-widest mb-2">Full Name</label>
-                        <input type="text" id="name" required placeholder="e.g. Gary Smith" class="w-full p-5 rounded-2xl bg-white border-none focus:ring-4 focus:ring-blue-900/20 outline-none font-bold text-lg">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-black text-gray-500 uppercase tracking-widest mb-2">Work Email</label>
-                        <input type="email" id="email" required placeholder="gary@example.co.uk" class="w-full p-5 rounded-2xl bg-white border-none focus:ring-4 focus:ring-blue-900/20 outline-none font-bold text-lg">
-                    </div>
-                    <button type="submit" id="submitButton" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-black py-6 rounded-2xl shadow-xl transition transform hover:scale-[1.02] active:scale-95 text-2xl uppercase tracking-tighter">
-                        Request Setup <i class="fa-solid fa-arrow-right ml-2"></i>
-                    </button>
-                </form>
-                <div id="successMessage" class="hidden text-center p-12 text-white">
-                    <i class="fa-solid fa-circle-check text-6xl text-green-400 mb-6 block"></i>
-                    <h4 class="text-2xl font-black mb-2 uppercase">Request Received!</h4>
-                    <p class="text-gray-400 font-medium">I'll be in touch personally within the hour.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="bg-slate-950 text-gray-500 py-24">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-16">
             <div class="col-span-2 text-center md:text-left">
-                <div class="h-16 flex items-center justify-center md:justify-start mb-8 grayscale brightness-200 opacity-50"> <!-- Increased container height here too -->
+                <div class="h-16 flex items-center justify-center md:justify-start mb-8 grayscale brightness-200 opacity-50">
                     <img src="logo.jpeg" alt="Logo" class="h-full w-auto object-contain">
                 </div>
-                <p class="max-w-sm mb-8 leading-relaxed mx-auto md:mx-0">Manchester's premier AI agency for the roofing industry. We leverage n8n, LLMs, and real-world trade experience to automate your growth.</p>
+                <p class="max-w-sm mb-8 leading-relaxed mx-auto md:mx-0">Manchester's premier automation agency for the service industry. We leverage technology and real-world trade experience to scale your business.</p>
                 <div class="flex justify-center md:justify-start space-x-6 text-white text-2xl">
                     <a href="https://www.linkedin.com/in/roger-malek-610737197" target="_blank" class="hover:text-blue-700 transition opacity-30 hover:opacity-100"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
@@ -572,10 +349,9 @@
             <div class="text-center md:text-left">
                 <h4 class="text-white font-black mb-8 uppercase tracking-widest text-xs">Services</h4>
                 <ul class="space-y-4 text-sm font-bold">
-                    <li><a href="demo.html" class="hover:text-white transition">Speed-to-Lead System</a></li>
-                    <li><a href="#" class="hover:text-white transition">n8n Workflow Builds</a></li>
-                    <li><a href="#" class="hover:text-white transition">AI Appointment Booking</a></li>
-                    <li><a href="#" class="hover:text-white transition">Lead Qualification</a></li>
+                    <li><a href="#live-demo" class="hover:text-white transition">Missed Call Text-Back System</a></li>
+                    <li><a href="#live-demo" class="hover:text-white transition">Automated Lead Qualification</a></li>
+                    <li><a href="#live-demo" class="hover:text-white transition">Zero-Touch Appointment Booking</a></li>
                 </ul>
             </div>
             <div class="text-center md:text-left">
@@ -594,12 +370,10 @@
         </div>
     </footer>
 
-    <!-- Chatbot Scripts -->
     <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
     <style>
       :root {
-        /* Updated chat color to match dark blue theme */
-        --n8n-chat-primary-color: #1e3a8a !important; 
+        --n8n-chat-primary-color: #1e3a8a !important; 
         --n8n-chat-primary-hover-color: #172554 !important;
       }
       .n8n-chat-footer-branding { display: none !important; }
@@ -610,13 +384,12 @@
         webhookUrl: 'https://primary-production-58a3.up.railway.app/webhook/3b8b4149-d04b-422e-8cca-01677ceeb9c4/chat',
         webhookConfig: { method: 'POST' },
         showWelcomeMsg: true,
-        welcomeMsg: 'Hi there! 👋 Need to win more roofing jobs without touching your phone? Ask me how.',
+        welcomeMsg: "Hi, I'm Roger's digital assistant. Want to see how I instantly qualify an enquiry while you're busy on site? Type your postcode and a fake issue below.",
         title: 'RoofFlow Assistant',
         mainColor: '#1e3a8a',
       });
     </script>
 
-    <!-- Functional Scripts -->
     <script>
         // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
@@ -624,16 +397,9 @@
         const mobileLinks = document.querySelectorAll('.mobile-link');
 
         if (btn && menu) {
-            function toggleMenu() {
-                menu.classList.toggle('hidden');
-            }
-
+            function toggleMenu() { menu.classList.toggle('hidden'); }
             btn.addEventListener('click', toggleMenu);
-
-            // Auto-close menu when a link is clicked
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', toggleMenu);
-            });
+            mobileLinks.forEach(link => { link.addEventListener('click', toggleMenu); });
         }
 
         // Calculator Logic
@@ -645,7 +411,6 @@
 
         function calculateLeak() {
             if (!leadsSlider || !valueInput || !timeInput || !leadsDisplay || !displayLeak) return;
-            
             const leads = parseFloat(leadsSlider.value) || 0;
             const value = parseFloat(valueInput.value) || 0;
             const leakFactor = parseFloat(timeInput.value);
@@ -655,63 +420,25 @@
         }
 
         [leadsSlider, valueInput, timeInput].filter(el => el).forEach(el => el.addEventListener('input', calculateLeak));
+        calculateLeak();
 
-        // Form Handling
-        const infoForm = document.getElementById('infoRequestForm');
-        const successMsg = document.getElementById('successMessage');
-        const submitBtn = document.getElementById('submitButton');
-
-        if (infoForm) {
-            infoForm.addEventListener('submit', function(e) {
-                e.preventDefault(); 
-                if (submitBtn) {
-                    submitBtn.disabled = true;
-                    submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing...';
-                }
-
-                const payload = {
-                    name: document.getElementById('name') ? document.getElementById('name').value : '',
-                    email: document.getElementById('email') ? document.getElementById('email').value : '',
-                    potential_leak: displayLeak ? displayLeak.innerText : '',
-                    source: 'RoofFlow Homepage - Navy Blue Edition'
-                };
-
-                fetch('https://primary-production-58a3.up.railway.app/webhook/ae607f8d-78f2-4d64-a570-29169e57f94b', {
+        // Intent Tracking for Demo Call Button
+        const demoBtnTracker = document.getElementById('demoCallBtnTracker');
+        if (demoBtnTracker) {
+            demoBtnTracker.addEventListener('click', function() {
+                // To wyśle sygnał (webhook) do Twojego n8n w momencie, gdy dekarz kliknie przycisk połączenia
+                // Będziesz mógł zliczać kliknięcia bez względu na to, czy ostatecznie zadzwoni
+                fetch('https://primary-production-58a3.up.railway.app/webhook/intent-tracking-demo', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                })
-                .then(res => {
-                    if (res.ok) {
-                        infoForm.classList.add('hidden'); 
-                        if (successMsg) successMsg.classList.remove('hidden'); 
-                        // Redirect to calendar on success
-                        window.location.href = 'https://cal.com/roger-malek/15min';
-                    } else {
-                        alert('Error sending request. Please email roger@roofflowai.co.uk directly.');
-                        if (submitBtn) {
-                            submitBtn.disabled = false;
-                            submitBtn.innerText = 'Request Setup';
-                        }
-                    }
-                })
-                .catch(() => {
-                    alert('Connection error. Check your internet.');
-                    if (submitBtn) {
-                        submitBtn.disabled = false;
-                        submitBtn.innerText = 'Request Setup';
-                    }
-                });
+                    body: JSON.stringify({ 
+                        event: 'demo_call_button_clicked', 
+                        source: 'RoofFlow Homepage',
+                        timestamp: new Date().toISOString()
+                    })
+                }).catch(e => console.error("Tracking error: ", e));
             });
         }
-
-        calculateLeak();
     </script>
 </body>
 </html>
-
-
-
-
-
-

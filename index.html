@@ -115,7 +115,39 @@
         <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-white to-transparent"></div>
     </header>
 
-    <section id="live-demo" class="bg-slate-50 py-20 border-y border-gray-100">
+    <div class="bg-white py-10 overflow-hidden border-b border-gray-100">
+        <div class="max-w-full mx-auto text-center">
+            <p class="text-gray-400 font-bold text-xs uppercase tracking-widest mb-6">Winning more jobs for contractors in</p>
+            
+            <div class="relative w-full overflow-hidden">
+                <div class="animate-marquee whitespace-nowrap">
+                    <div class="flex gap-16 mx-8 text-4xl font-black text-slate-200 uppercase italic tracking-tighter">
+                        <span>Manchester</span>
+                        <span>London</span>
+                        <span>Leeds</span>
+                        <span>Bristol</span>
+                        <span>Birmingham</span>
+                        <span>Liverpool</span>
+                        <span>Sheffield</span>
+                        <span>Newcastle</span>
+                    </div>
+                    <div class="flex gap-16 mx-8 text-4xl font-black text-slate-200 uppercase italic tracking-tighter">
+                        <span>Manchester</span>
+                        <span>London</span>
+                        <span>Leeds</span>
+                        <span>Bristol</span>
+                        <span>Birmingham</span>
+                        <span>Liverpool</span>
+                        <span>Sheffield</span>
+                        <span>Newcastle</span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <section id="live-demo" class="bg-slate-50 py-20 border-b border-gray-100">
         <div class="max-w-5xl mx-auto px-4">
             <div class="bg-blue-900 rounded-[2.5rem] p-8 md:p-16 text-white shadow-2xl relative overflow-hidden transform hover:-translate-y-1 transition duration-300 text-center">
                 
@@ -370,26 +402,6 @@
         </div>
     </footer>
 
-    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-    <style>
-      :root {
-        --n8n-chat-primary-color: #1e3a8a !important; 
-        --n8n-chat-primary-hover-color: #172554 !important;
-      }
-      .n8n-chat-footer-branding { display: none !important; }
-    </style>
-    <script type="module">
-      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-      createChat({
-        webhookUrl: 'https://primary-production-58a3.up.railway.app/webhook/3b8b4149-d04b-422e-8cca-01677ceeb9c4/chat',
-        webhookConfig: { method: 'POST' },
-        showWelcomeMsg: true,
-        welcomeMsg: "Hi, I'm Roger's digital assistant. Want to see how I instantly qualify an enquiry while you're busy on site? Type your postcode and a fake issue below.",
-        title: 'RoofFlow Assistant',
-        mainColor: '#1e3a8a',
-      });
-    </script>
-
     <script>
         // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
@@ -426,8 +438,6 @@
         const demoBtnTracker = document.getElementById('demoCallBtnTracker');
         if (demoBtnTracker) {
             demoBtnTracker.addEventListener('click', function() {
-                // To wyśle sygnał (webhook) do Twojego n8n w momencie, gdy dekarz kliknie przycisk połączenia
-                // Będziesz mógł zliczać kliknięcia bez względu na to, czy ostatecznie zadzwoni
                 fetch('https://primary-production-58a3.up.railway.app/webhook/intent-tracking-demo', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },

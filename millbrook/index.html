@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>Millbrook Roofing - Emergency Support</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Prosta animacja ładowania */
+        .loader {
+            /* Zmiana koloru na niebieski */
+            border-top-color: #1d4ed8; 
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen relative">
+
+    <!-- Kontener widgetu czatu (przyklejony do prawego dolnego rogu) -->
+    <div id="chat-container" class="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 w-full max-w-xs sm:max-w-sm bg-white rounded-xl shadow-2xl flex flex-col overflow-hidden border border-gray-200 transition-all duration-300 transform translate-y-0">
+        
+        <!-- Nagłówek czatu - Zmiana na niebieski -->
+        <div class="bg-blue-700 p-4 text-white flex justify-between items-center cursor-pointer" onclick="toggleChat()">
+            <div>
+                <h3 class="font-bold text-lg">Millbrook Roofing</h3>
+                <p class="text-xs text-blue-100">Emergency Triage</p>
+            </div>
+            <!-- Ikona zamknięcia/minimalizacji -->
+            <svg id="toggle-icon" class="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        </div>
+
+        <!-- Obszar wiadomości -->
+        <div id="chat-messages" class="p-4 h-80 overflow-y-auto flex flex-col space-y-3 bg-gray-50">
+            <!-- Domyślna wiadomość powitalna -->
+            <div class="flex flex-col items-start">
+                <div class="bg-gray-200 text-gray-800 rounded-br-xl rounded-tr-xl rounded-tl-xl p-3 max-w-[85%] text-sm">
+                    Hi, this is Millbrook Roofing support. What seems to be the issue with your roof today?
+                </div>
+            </div>
+        </div>
+
+        <!-- Wskaźnik pisania (domyślnie ukryty) -->
+        <div id="typing-indicator" class="hidden p-2 px-4 bg-gray-50 text-xs text-gray-400 italic">
+            Agent is typing...
+        </div>
+
+        <!-- Pole wprowadzania wiadomości -->
+        <div class="p-3 bg-white border-t border-gray-200 flex items-center">
+            <input type="text" id="chat-input" class="flex-1 border-none focus:ring-0 focus:outline-none text-sm p-2 bg-gray-100 rounded-l-lg" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+            <!-- Przycisk wysyłania - Zmiana na niebieski -->
+            <button onclick="sendMessage()" class="bg-blue-700 text-white p-2 rounded-r-lg hover:bg-blue-800 transition-colors">
+                <svg class="w-5 h-5 transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Webhook z n8n (produkcyjny z Railway)
+        const N8N_WEBHOOK_URL = 'https://primary-production-58a3.up.railway.app/webhook/078aaec4-aca2-46af-8317-e2b060436b89';
+        
+        // Generowanie unikalnego ID sesji, aby n8n Window Buffer Memory wiedziało, z kim rozmawia
+        const sessionId = 'session_' + Math.random().toString(36).substr(2, 9);
+        let chatOpen = true;
+
+        function toggleChat() {
+            const messagesArea = document.getElementById('chat-messages');
+            const inputArea = messagesArea.nextElementSibling.nextElementSibling;
+            const icon = document.getElementById('toggle-icon');
+            
+            chatOpen = !chatOpen;
+            
+            if (!chatOpen) {
+                messagesArea.style.display = 'none';
+                inputArea.style.display = 'none';
+                icon.classList.remove('rotate-180');
+            } else {
+                messagesArea.style.display = 'flex';
+                inputArea.style.display = 'flex';
+                icon.classList.add('rotate-180');
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function addMessage(text, sender) {
+            const messagesContainer = document.getElementById('chat-messages');
+            const msgDiv = document.createElement('div');
+            
+            if (sender === 'user') {
+                msgDiv.className = 'flex flex-col items-end';
+                // Wiadomość użytkownika - Zmiana na niebieski
+                msgDiv.innerHTML = `
+                    <div class="bg-blue-700 text-white rounded-bl-xl rounded-tl-xl rounded-tr-xl p-3 max-w-[85%] text-sm">
+                        ${text}
+                    </div>
+                `;
+            } else {
+                msgDiv.className = 'flex flex-col items-start';
+                msgDiv.innerHTML = `
+                    <div class="bg-gray-200 text-gray-800 rounded-br-xl rounded-tr-xl rounded-tl-xl p-3 max-w-[85%] text-sm">
+                        ${text}
+                    </div>
+                `;
+            }
+            
+            messagesContainer.appendChild(msgDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        async function sendMessage() {
+            const inputField = document.getElementById('chat-input');
+            const message = inputField.value.trim();
+            const indicator = document.getElementById('typing-indicator');
+            
+            if (!message) return;
+
+            // Dodaj wiadomość użytkownika do UI
+            addMessage(message, 'user');
+            inputField.value = '';
+            
+            // Pokaż wskaźnik pisania
+            indicator.classList.remove('hidden');
+
+            try {
+                // Wysłanie POSTa do webhooka n8n
+                const response = await fetch(N8N_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        sessionId: sessionId,
+                        chatInput: message
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                
+                // Ukryj wskaźnik pisania
+                indicator.classList.add('hidden');
+
+                // Oczekujemy, że n8n zwróci odpowiedź w polu "output", "text" lub "message"
+                const botResponse = data.output || data.text || data.message || (typeof data === 'string' ? data : "Error parsing response from n8n.");
+                
+                addMessage(botResponse, 'bot');
+
+            } catch (error) {
+                indicator.classList.add('hidden');
+                console.error('Error connecting to n8n:', error);
+                addMessage("Sorry, I'm having trouble connecting to the server right now. Please call us directly.", 'bot');
+            }
+        }
+    </script>
+</body>
+</html>

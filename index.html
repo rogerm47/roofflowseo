@@ -259,30 +259,30 @@
                         <div class="space-y-0 relative">
                             <!-- Step 1 -->
                             <div id="node-webhook" class="flex items-center gap-4 step-inactive p-3 rounded-lg transition-all duration-500">
-                                <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center shadow-lg z-10"><i class="fa-solid fa-globe"></i></div>
+                                <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center shadow-lg z-10"><i class="fa-solid fa-bolt"></i></div>
                                 <div>
-                                    <p class="font-bold text-sm">Webhook Trigger</p>
-                                    <p class="text-[10px] text-slate-400">Data received from website form</p>
+                                    <p class="font-bold text-sm">Lead Captured</p>
+                                    <p class="text-[10px] text-slate-400">Customer hits submit</p>
                                 </div>
                             </div>
                             <div class="node-line border-l-2 border-slate-700 ml-5 h-6"></div>
 
                             <!-- Step 2 -->
                             <div id="node-sheets" class="flex items-center gap-4 step-inactive p-3 rounded-lg transition-all duration-500">
-                                <div class="w-10 h-10 rounded-lg bg-green-600 flex items-center justify-center shadow-lg z-10"><i class="fa-brands fa-google-drive"></i></div>
+                                <div class="w-10 h-10 rounded-lg bg-green-600 flex items-center justify-center shadow-lg z-10"><i class="fa-solid fa-database"></i></div>
                                 <div>
-                                    <p class="font-bold text-sm">Google Sheets CRM</p>
-                                    <p class="text-[10px] text-slate-400">Lead logged instantly</p>
+                                    <p class="font-bold text-sm">Data Secured</p>
+                                    <p class="text-[10px] text-slate-400">Instantly saved to your system</p>
                                 </div>
                             </div>
                             <div class="node-line border-l-2 border-slate-700 ml-5 h-6"></div>
 
                             <!-- Step 3 -->
                             <div id="node-switch" class="flex items-center gap-4 step-inactive p-3 rounded-lg transition-all duration-500">
-                                <div class="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center shadow-lg z-10"><i class="fa-solid fa-code-branch"></i></div>
+                                <div class="w-10 h-10 rounded-lg bg-purple-600 flex items-center justify-center shadow-lg z-10"><i class="fa-solid fa-filter"></i></div>
                                 <div>
-                                    <p class="font-bold text-sm">AI Logic Switch</p>
-                                    <p class="text-[10px] text-slate-400">Filtering based on Budget & Service</p>
+                                    <p class="font-bold text-sm">AI Filters Time-Wasters</p>
+                                    <p class="text-[10px] text-slate-400">Qualifying lead based on budget</p>
                                 </div>
                             </div>
                             
@@ -290,23 +290,23 @@
                             <div class="grid grid-cols-2 gap-4 mt-6">
                                 <!-- Branch A -->
                                 <div id="branch-email" class="border border-slate-700 rounded-xl p-3 step-inactive bg-slate-800/50">
-                                    <p class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Budget < £5k</p>
+                                    <p class="text-[10px] font-bold text-slate-500 mb-2 uppercase">Tyre Kicker (< £5k)</p>
                                     <div class="flex items-center gap-2">
                                         <div class="w-8 h-8 rounded-full bg-red-900/50 text-red-400 flex items-center justify-center"><i class="fa-solid fa-envelope"></i></div>
-                                        <p class="text-xs">Standard Email</p>
+                                        <p class="text-xs">Polite Email</p>
                                     </div>
                                 </div>
 
                                 <!-- Branch B -->
                                 <div id="branch-sms" class="border border-blue-500/30 rounded-xl p-3 step-inactive bg-blue-900/20">
-                                    <p class="text-[10px] font-bold text-blue-400 mb-2 uppercase">Budget > £10k</p>
+                                    <p class="text-[10px] font-bold text-blue-400 mb-2 uppercase">Gold Lead (> £10k)</p>
                                     <div class="flex items-center gap-2 mb-2">
                                         <div class="w-8 h-8 rounded-full bg-blue-600 text-white flex items-center justify-center"><i class="fa-solid fa-robot"></i></div>
-                                        <p class="text-xs">GPT Draft</p>
+                                        <p class="text-xs">AI Drafts Pitch</p>
                                     </div>
                                     <div class="flex items-center gap-2">
                                         <div class="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center"><i class="fa-solid fa-comment-sms"></i></div>
-                                        <p class="text-xs">Priority SMS</p>
+                                        <p class="text-xs">Instant SMS</p>
                                     </div>
                                 </div>
                             </div>
@@ -315,7 +315,7 @@
                         <!-- Log Console -->
                         <div class="mt-6 border-t border-slate-700 pt-4">
                             <div id="console-output" class="font-mono text-[10px] text-green-400 h-24 overflow-y-auto space-y-1">
-                                <p class="opacity-50">> System ready. Waiting for input...</p>
+                                <p class="opacity-50">> System armed. Waiting for customer...</p>
                             </div>
                         </div>
 
@@ -636,7 +636,7 @@
                 el.classList.add('step-inactive');
                 el.classList.remove('step-active', 'bg-slate-800', 'pulse-blue');
             });
-            if (consoleOutput) consoleOutput.innerHTML = '<p class="opacity-50">> Starting new sequence...</p>';
+            if (consoleOutput) consoleOutput.innerHTML = '<p class="opacity-50">> System armed. Waiting for customer...</p>';
         }
 
         if (form) {
@@ -644,7 +644,7 @@
                 e.preventDefault();
                 resetVisuals();
                 submitBtn.disabled = true;
-                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Sending to n8n...';
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Generating system response...';
 
                 const formData = {
                     first_name: document.getElementById('first_name').value,
@@ -672,17 +672,17 @@
                 });
 
                 setTimeout(() => {
-                    log("Webhook triggered successfully.");
+                    log("Lead captured instantly.");
                     activate(nodeWebhook);
                 }, 500);
 
                 setTimeout(() => {
-                    log("Row added to Google Sheets (CRM).");
+                    log("Customer details securely saved to your database.");
                     activate(nodeSheets);
                 }, 1500);
 
                 setTimeout(() => {
-                    log(`Analyzing Budget: ${formData.budget_range}`);
+                    log(`AI checking if lead is worth your time...`);
                     activate(nodeSwitch);
                     nodeSwitch.classList.add('pulse-blue');
                 }, 2500);
@@ -690,18 +690,18 @@
                 setTimeout(() => {
                     nodeSwitch.classList.remove('pulse-blue');
                     if (formData.budget_range === 'under_5k') {
-                        log("Logic: Standard enquiry. Sending email.");
+                        log("Low budget detected. Sending polite standard email.");
                         activate(branchEmail);
                     } else {
-                        log("Logic: HIGH VALUE LEAD detected.");
-                        log("Action: Generating AI response...");
-                        log("Action: Sending SMS via Twilio...");
+                        log("HIGH VALUE LEAD detected. Locking them in.");
+                        log("AI drafting perfect pitch...");
+                        log("Sending instant text message to customer's phone...");
                         activate(branchSms);
                     }
                     
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = 'Submit Another Lead <i class="fa-solid fa-paper-plane ml-2"></i>';
-                    log("Workflow completed. Check your phone/email!");
+                    log("Process complete. Check your phone/email to see what your customer sees!");
                 }, 4500);
             });
         }

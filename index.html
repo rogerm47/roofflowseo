@@ -74,7 +74,7 @@
 <body class="text-gray-800 antialiased bg-white overflow-x-hidden">
 
     <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-4 h-24 relative flex items-center justify-center md:grid md:grid-cols-3 md:justify-between">
+        <div class="max-w-7xl mx-auto px-4 h-24 relative flex items-center justify-between">
             
             <div class="absolute right-4 md:hidden z-20">
                 <button id="mobile-menu-btn" class="text-gray-800 focus:outline-none p-2 hover:text-blue-900 transition">
@@ -82,24 +82,28 @@
                 </button>
             </div>
 
-            <div class="hidden md:flex space-x-8 font-semibold text-gray-600 justify-start">
+            <!-- Left Navigation Links -->
+            <div class="hidden md:flex space-x-6 font-semibold text-gray-600 justify-start flex-1">
                 <a href="#live-demo" class="hover:text-blue-900 transition whitespace-nowrap text-blue-700 font-bold">Live Demo</a>
                 <a href="#how-it-works" class="hover:text-blue-900 transition whitespace-nowrap">How it Works</a>
                 <a href="#calculator" class="hover:text-blue-900 transition whitespace-nowrap">Lead Leak Calculator</a>
             </div>
 
-            <div class="flex justify-center w-full md:w-auto">
+            <!-- Center Logo -->
+            <div class="flex justify-center w-full md:w-auto absolute left-1/2 transform -translate-x-1/2">
                 <a href="#" class="logo-container">
                     <img src="logo.jpeg" alt="RoofFlow AI Logo" class="logo-img">
                 </a>
             </div>
 
-            <div class="hidden md:flex justify-end">
+            <!-- Right CTA Button -->
+            <div class="hidden md:flex justify-end flex-1">
                 <a href="https://cal.com/roger-malek/15min" target="_blank" class="bg-blue-900 text-white px-6 py-3 rounded-lg hover:bg-blue-800 transition shadow-md whitespace-nowrap">Book Free Lead Leak Audit</a>
             </div>
             
         </div>
 
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 top-24 shadow-xl z-10">
             <div class="flex flex-col p-6 space-y-6 text-center">
                 <a href="#live-demo" class="text-xl font-bold text-blue-700 hover:text-blue-900 py-2 mobile-link">Live Demo</a>
@@ -180,8 +184,8 @@
                     <h3 class="text-4xl md:text-5xl font-black mb-6 leading-tight">Test The System <br>Like A Real Customer</h3>
                     <p class="text-blue-100 font-medium text-lg md:text-xl opacity-90 mb-10 leading-relaxed">Call the demo line, let it ring, then hang up. You’ll experience the kind of fast missed-call follow-up your roofing leads would receive when nobody can answer straight away.</p>
                     
-                    <a href="tel:+447897036952" id="demoCallBtnTracker" class="inline-block w-full md:w-auto bg-white text-blue-900 font-black py-5 px-16 rounded-2xl hover:bg-blue-50 transition shadow-[0_0_30px_rgba(255,255,255,0.3)] text-2xl uppercase tracking-wider block text-center whitespace-nowrap">
-                        Call +44 7897 036952 <i class="fa-solid fa-arrow-right ml-2"></i>
+                    <a href="tel:+447897036952" id="demoCallBtnTracker" class="inline-block w-full md:w-auto bg-white text-blue-900 font-black py-4 px-2 sm:px-8 md:py-5 md:px-16 rounded-2xl hover:bg-blue-50 transition shadow-[0_0_30px_rgba(255,255,255,0.3)] text-base sm:text-xl md:text-2xl uppercase tracking-wider block text-center">
+                        Call +44 7897 036952 <i class="fa-solid fa-arrow-right ml-1 sm:ml-2"></i>
                     </a>
                 </div>
             </div>
